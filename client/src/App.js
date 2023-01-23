@@ -31,7 +31,7 @@ function App() {
         </Route>
 
         <Route path='/users/new'>
-          <SignUp />
+          <SignUp setUser={setUser}/>
         </Route>
 
         <Route path='/users/:id/profile'>

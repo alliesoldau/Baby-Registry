@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 
-function SignUp() {
+function SignUp({ setUser }) {
     
     const [formData, setFormData] = useState({
         username:'',
@@ -31,6 +31,7 @@ function SignUp() {
                 if(res.ok){
                     res.json().then(user => {
                         history.push(`/users/${user.id}`)
+                        setUser(formData)
                     })
                 } else {
                     console.log("Figure out what to do with errors")

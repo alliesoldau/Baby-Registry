@@ -10,7 +10,6 @@ function Navigation({ user, setUser }) {
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
           if (r.ok) {
-
             history.push("/")
             setUser(null);
           }
