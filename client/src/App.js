@@ -11,7 +11,7 @@ import MyRegistry from './components/MyRegistry'
 function App() {
   
   const [user, setUser] = useState(null);
-
+  
   useEffect(() => {
     // auto-login
     fetch("/authorized").then((r) => {
@@ -38,19 +38,17 @@ function App() {
           <UserProfile user={user}/>
         </Route>
 
-        <Route path='/users/:id/registry'>
-          <MyRegistry user={user}/>
+        <Route path='/users/:id/baby_showers'>
+          <MyRegistry />
         </Route>
 
         <Route path='/users/:id'>
-          <UserHomePage />
+          <UserHomePage user={user} setUser={setUser}/>
         </Route>
 
         <Route path='/login'>
           <Login setUser={setUser}/>
         </Route>
-
-
       
       </Switch>
     </div>

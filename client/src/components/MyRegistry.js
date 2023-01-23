@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
 import ShowerDetails from './ShowerDetails'
+import {useParams} from 'react-router-dom'
 
-function MyRegistry( {user} ) {
+function MyRegistry() {
+
+    const params = useParams()
 
     const [babyShowers, setBabyShowers] = useState([])
 
     useEffect(()=>{
-        fetch(`/baby_showers/${user.id}`)
+        fetch(`/users/${params.id}/baby_showers`)
         .then(res => {
             if(res.ok){
                 res.json().then(showers => {
@@ -16,9 +19,7 @@ function MyRegistry( {user} ) {
                 console.log("Figure out what to do with errors")
             }
         }) 
-    },[])
-
-    console.log(babyShowers)            
+    },[])           
 
 
     const babyShowerDetails = babyShowers.map((shower) => {
@@ -32,7 +33,8 @@ function MyRegistry( {user} ) {
 
     return (
         <div className="My-Registry">
-            <p>{user.username}'s Registry</p>
+            {/* TO DO: grab user name */}
+            {/* <p>{user.username}'s Registry</p> */}
             {babyShowerDetails}
         </div>
     )

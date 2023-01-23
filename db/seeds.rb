@@ -1,7 +1,3 @@
-#baby_showers
-#users
-#items
-
 puts "Seeding user data..."
 
 u1 = User.create(username: "JaviRod", email: "javi@example.com", password:"1234", first_name: "Javi", last_name: "Rodriguez", gender: "male", image_url: "https://scontent-lga3-2.cdninstagram.com/v/t51.2885-15/272485055_442645474232137_553443305937710399_n.jpg?stp=dst-jpg_e35_s1080x1080&_nc_ht=scontent-lga3-2.cdninstagram.com&_nc_cat=101&_nc_ohc=m8T-kbKSZK8AX9oyBxn&tn=a3pJmd8ONxYdvNbD&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=Mjc1ODY5MzExMjc1NzAyODc5MA%3D%3D.2-ccb7-5&oh=00_AfCeeGgPmqiZJ5wpxh573MVzvJZ84dh8uBlqKzRNeD0gZA&oe=63D38A9E&_nc_sid=6136e7", city: "Chicago", state: "IL")

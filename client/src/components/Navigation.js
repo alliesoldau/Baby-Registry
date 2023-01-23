@@ -30,12 +30,11 @@ function Navigation({ user, setUser }) {
                             <button onClick={handleLogoutClick}>Logout</button>
                             <div className="Nav-Link-Container">
                                 <NavLink className="NavLink-Button" to="/users/:id/profile">
-                                    User profile
+                                    User Profile
                                 </NavLink>
-                                <NavLink className="NavLink-Button" to="/users/:id/registry">
+                                <NavLink className="NavLink-Button" to="/users/:id/baby_showers">
                                     My Babyshower Registry
                                 </NavLink>
-                                {/* TO DO: Add in profile details, item details, etc */}
                             </div>
                         </div>                    
                     ) : (

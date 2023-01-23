@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   
-  resources :users, only: [:show, :create]
+  resources :users, only: [:show, :create, :index]
   resources :baby_showers, only: [ :index, :show, :create, :update, :destroy]
   resources :items, only: [ :index, :show, :create, :update, :destroy]
 
   # Custom auth Routes
   get '/authorized', to: 'users#show'
+  get '/users/:id/baby_showers', to: 'users#show_showers'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
