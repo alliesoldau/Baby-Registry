@@ -20,10 +20,12 @@ function Navigation({ user, setUser }) {
                     </h1>
                 </Link>
                 <div>
+                    {/* TO DO: Why do I need to refresh to have the nav update after signing up/logging in? */}
                     {user ? (
                         <div>
                             <button onClick={handleLogoutClick}>Logout</button>
                             <div className="Nav-Link-Container">
+                                <p>There is a user</p>
                                 {/* TO DO: Figure out how to add in navlinks for the specific user once they've logged in */}
                                 {/* <NavLink className="NavLink-Button" to="/users/:id/myregistry">
                                     My Registry

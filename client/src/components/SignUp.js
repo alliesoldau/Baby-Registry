@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 
+// TO DO: What's with all these underlines? 
+
 function SignUp() {
 
     let history = useHistory()
@@ -10,6 +12,8 @@ function SignUp() {
         email:"",
         password:""
     })
+
+    // TO DO: Need to add in a password confirmation
 
     function handleSubmit(e) {
     e.preventDefault();

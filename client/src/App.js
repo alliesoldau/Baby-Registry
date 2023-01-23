@@ -4,6 +4,7 @@ import Home from './components/Home'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Navigation from './components/Navigation'
+import UserHomePage from './components/UserHomePage'
 
 function App() {
   
@@ -31,9 +32,15 @@ function App() {
           <SignUp />
         </Route>
 
+        <Route path='/users/:id'>
+          <UserHomePage />
+        </Route>
+
         <Route path='/login'>
           <Login/>
         </Route>
+
+
       
       </Switch>
     </div>
