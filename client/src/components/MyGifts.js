@@ -15,7 +15,7 @@ function MyGifts() {
                 res.json().then(gifts => {
                     setMyGifts(gifts)    
                 })
-            }else {
+            } else {
                 console.log("Figure out what to do with errors")
             }
         }) 

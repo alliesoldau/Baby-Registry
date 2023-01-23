@@ -3,13 +3,14 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
+  # TO DO: make sure users cant delete/update things that arent theres 
+
   # before_action 
   before_action :authorized_user
 
   # current_user and authorized_user 
   def current_user
     user = User.find_by(id:session[:user_id])
-    user
   end 
 
   def authorized_user

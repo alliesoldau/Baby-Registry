@@ -1,5 +1,8 @@
 class BabyShowersController < ApplicationController
 
+    # TO DO: delete this after ur done playing w postman 
+    # skip_before_action :authorized_user, only:[:destroy, :index, :show]
+
     def index 
         render json: BabyShower.all, status: :ok
     end 
