@@ -1,12 +1,17 @@
 import React from "react";
 import {Link, NavLink} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
+
 
 function Navigation({ user, setUser }) {
+
+    const history = useHistory()
 
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
           if (r.ok) {
             setUser(null);
+            history.push(`/`)
           }
         });
       }
