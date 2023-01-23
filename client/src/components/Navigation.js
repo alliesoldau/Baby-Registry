@@ -29,10 +29,10 @@ function Navigation({ user, setUser }) {
                         <div>
                             <button onClick={handleLogoutClick}>Logout</button>
                             <div className="Nav-Link-Container">
-                                <NavLink className="NavLink-Button" to="/users/:id/profile">
+                                <NavLink className="NavLink-Button" to={`/users/${user.id}/profile`}>
                                     User Profile
                                 </NavLink>
-                                <NavLink className="NavLink-Button" to="/users/:id/baby_showers">
+                                <NavLink className="NavLink-Button" to={`/users/${user.id}/baby_showers`}>
                                     My Babyshower Registry
                                 </NavLink>
                             </div>
