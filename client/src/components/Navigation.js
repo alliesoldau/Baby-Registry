@@ -21,20 +21,24 @@ function Navigation({ user, setUser }) {
                 </Link>
                 <div>
                     {user ? (
-                    <button onClick={handleLogoutClick}>Logout</button>
+                        <div>
+                            <button onClick={handleLogoutClick}>Logout</button>
+                            <div className="Nav-Link-Container">
+                                {/* TO DO: Figure out how to add in navlinks for the specific user once they've logged in */}
+                                {/* <NavLink className="NavLink-Button" to="/users/:id/myregistry">
+                                    My Registry
+                                </NavLink> */}
+                                {/* TO DO: Add in profile details, item details, etc */}
+                            </div>
+                        </div>                    
                     ) : (
-                    <>
-                        <Link to="/signup">Signup</Link>
+                    <div className="Login-Signup-Container">
+                        <Link to="/users/new">Sign Up</Link>
                         <Link to="/login">Login</Link>
-                    </>
+                    </div>
                     )}
                 </div>
-                <div className="Nav-Link-Container">
-                    {/* TO DO: Figure out how to add in navlinks for the specific user once they've logged in */}
-                    {/* <NavLink className="NavLink-Button" to="/users/:id/myregistry">
-                        My Registry
-                    </NavLink> */}
-                </div>
+
             </header>
         </div>
     )
