@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {useParams} from 'react-router-dom'
 
-function UserHomePage() {
-
-    const [user, setUser] = useState({})
+function UserHomePage({ user, setUser }) {
 
     const params = useParams()
-    const {id} = params
 
     useEffect(()=>{
-        fetch(`/users/${id}`)
+        fetch(`/users/${params.id}`)
         .then(res => {
             if(res.ok){
                 res.json().then(user => {
@@ -22,10 +19,19 @@ function UserHomePage() {
     },[])
 
     return (
-        <div className="User-Home-Page-Container">
-            <p>{user.username}'s Home Page</p>
-        </div>
+        <>
+        { user ? (
+            <div className="User-Home-Page-Container">
+                <p>{user.username}'s Home Page</p>
+            </div>
+            )  :  (
+            // TO DO: loading screen
+            <p>No user</p>
+        )}
+        </>
     )
 }
+
+
 
 export default UserHomePage;
