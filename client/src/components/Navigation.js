@@ -35,6 +35,9 @@ function Navigation({ user, setUser }) {
                                 <NavLink className="NavLink-Button" to={`/users/${user.id}/baby_showers`}>
                                     My Babyshower Registry
                                 </NavLink>
+                                <NavLink className="NavLink-Button" to={`/users/${user.id}/gifts`}>
+                                    Things I'm Gifting
+                                </NavLink>
                             </div>
                         </div>                    
                     ) : (

@@ -7,6 +7,7 @@ import Navigation from './components/Navigation'
 import UserHomePage from './components/UserHomePage'
 import UserProfile from './components/UserProfile'
 import MyRegistry from './components/MyRegistry'
+import MyGifts from './components/MyGifts'
 
 function App() {
   
@@ -40,6 +41,10 @@ function App() {
 
         <Route path='/users/:id/baby_showers'>
           <MyRegistry />
+        </Route>
+
+        <Route path='/users/:id/gifts'>
+          <MyGifts />
         </Route>
 
         <Route path='/users/:id'>

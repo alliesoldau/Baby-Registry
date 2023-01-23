@@ -14,6 +14,12 @@ class UsersController < ApplicationController
         render json: showers, include: :items
     end
 
+    # This is the items you are gifting TO people 
+    def show_gifts
+        items = Item.where(user_id: current_user.id)
+        render json: items, include: :baby_shower
+    end
+
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id
