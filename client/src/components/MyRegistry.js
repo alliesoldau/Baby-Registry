@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import ShowerDetails from './ShowerDetails'
-import {useParams} from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 function MyRegistry() {
 
     const params = useParams()
+    const history = useHistory()
 
     const [babyShowers, setBabyShowers] = useState([])
 
@@ -30,11 +31,18 @@ function MyRegistry() {
         )
     })
 
+    function handleRouteToNewRegistryForm() {
+        history.push(`/users/${params.id}/add_registry`)
+    }
+
     return (
         <div className="My-Registry">
-            {/* TO DO: grab user name */}
-            {/* <p>{user.username}'s Registry</p> */}
-            {babyShowerDetails}
+            <div className="Create-Babyshower-Button">
+                <button onClick={handleRouteToNewRegistryForm}>Create New Registry</button>
+            </div>
+            <div className="My-Registry-Details">
+                {babyShowerDetails}
+            </div>
         </div>
     )
 }

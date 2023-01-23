@@ -8,6 +8,7 @@ import UserHomePage from './components/UserHomePage'
 import UserProfile from './components/UserProfile'
 import MyRegistry from './components/MyRegistry'
 import MyGifts from './components/MyGifts'
+import AddRegistryForm from './components/AddRegistryForm'
 
 function App() {
   
@@ -45,6 +46,10 @@ function App() {
 
         <Route path='/users/:id/gifts'>
           <MyGifts />
+        </Route>
+
+        <Route path='/users/:id/add_registry'>
+          <AddRegistryForm />
         </Route>
 
         <Route path='/users/:id'>
