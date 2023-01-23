@@ -5,8 +5,8 @@ class BabyShowersController < ApplicationController
     end 
 
     def show
-        baby_shower = BabyShower.find(params[:id])
-        render json: baby_shower, include: :cast_members, status: :ok
+        baby_shower = BabyShower.where(user_id: params[:id])
+        render json: baby_shower, status: :ok
     end 
 
     def create

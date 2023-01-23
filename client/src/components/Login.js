@@ -45,11 +45,11 @@ function Login() {
             <form className="Login-Form" onSubmit={handleSubmit}>
                 <div className="Form-Field">
                     <label>Username</label>
-                        <input type='text' name='username' value={username} onChange={handleChange} />
+                    <input type='text' name='username' value={username} onChange={handleChange} />
                 </div>
                 <div className="Form-Field">
                     <label>Password</label>
-                        <input type='password' name='password' value={password} onChange={handleChange} />
+                    <input type='password' name='password' value={password} onChange={handleChange} />
                 </div>
             <button type='submit' className="submit">Login</button>
             </form>

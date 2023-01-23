@@ -5,6 +5,8 @@ import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Navigation from './components/Navigation'
 import UserHomePage from './components/UserHomePage'
+import UserProfile from './components/UserProfile'
+import MyRegistry from './components/MyRegistry'
 
 function App() {
   
@@ -30,6 +32,14 @@ function App() {
 
         <Route path='/users/new'>
           <SignUp />
+        </Route>
+
+        <Route path='/users/:id/profile'>
+          <UserProfile user={user}/>
+        </Route>
+
+        <Route path='/users/:id/registry'>
+          <MyRegistry user={user}/>
         </Route>
 
         <Route path='/users/:id'>
