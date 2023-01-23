@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
     def show_showers
         showers = BabyShower.where(user_id: current_user.id)
-        render json: showers
+        render json: showers, include: :items
     end
 
     def create

@@ -21,7 +21,6 @@ function MyRegistry() {
         }) 
     },[])           
 
-
     const babyShowerDetails = babyShowers.map((shower) => {
         return (
             <ShowerDetails

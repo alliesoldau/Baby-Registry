@@ -7,11 +7,11 @@ u3 = User.create(username: "FredFrog", email: "freddie@example.com", password: "
 puts "Seeding baby shower data..."
 
 b1 = BabyShower.create(baby_shower_name: "Javi's baby shower", date: "2023-04-12", address: "My House", image_url: "https://images.unsplash.com/photo-1630305131239-c8df91783f10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGJhYnklMjBnaXJsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1296&q=60", description: "Come help us celebrate baby Kevin!", user_id: u1.id)
-b2 = BabyShower.create(baby_shower_name: "Freddie's baby shower", date: "2024-01-16", address: "Freddie's fish tank", image_url: "https://www.customaquariums.com/wp-content/uploads/2019/02/100-gallon-aquarium-24_-x-48_-x-18_-colonial-oak-stain-classic-trim-standard-flat-panels-showcase-image.jpg", description: "Freddie and Freddie are having babies!!", user_id: u3.id)
+b2 = BabyShower.create(baby_shower_name: "Javi's 2nd baby shower", date: "2024-01-16", address: "Freddie's fish tank", image_url: "https://www.customaquariums.com/wp-content/uploads/2019/02/100-gallon-aquarium-24_-x-48_-x-18_-colonial-oak-stain-classic-trim-standard-flat-panels-showcase-image.jpg", description: "Javi is having more babies!!", user_id: u1.id)
 
 puts "Seeding item data..."
 
 i1 = Item.create(item_name: "Diapers", price: 42.99, image_url: "https://i5.walmartimages.com/asr/2a201ae0-ac03-44e7-8d10-0745c3077052_1.7db20f10a38473112cb9e51b591a4731.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF", listing_url: "https://www.walmart.com/ip/Pampers-Swaddlers-Newborn-Diapers-Size-0-88-count/28240458?wmlspartner=wlpa&selectedSellerId=101250816&&adid=2222222222728240458_146223900841_18659479646&wl0=&wl1=g&wl2=c&wl3=629494650645&wl4=aud-1651068664266:pla-455189314445&wl5=9004733&wl6=&wl7=&wl8=&wl9=pla&wl10=676956757&wl11=online&wl12=28240458&veh=sem&gclid=CjwKCAiA2rOeBhAsEiwA2Pl7Qz-rhv5uRshqv6I_sKUPZJcgjUth2bdwIact3vUq4YWA0_HQp6RWaRoCWDQQAvD_BwE&gclsrc=aw.ds", baby_shower_id: b1.id, user_id: u3.id)
 i2 = Item.create(item_name: "Bottles", price: 30.95, image_url: "https://images.philips.com/is/image/philipsconsumer/a974b5e1976341618845aca9000f70a5?wid=1364&hei=530&$jpglarge$", listing_url: "https://www.usa.philips.com/c-p/SCY903_34/natural-baby-bottle?utm_id=71700000097446442&origin=7_700000001596682_71700000097446442__&gclid=CjwKCAiA2rOeBhAsEiwA2Pl7Q3rmGJWAax5EicIuz2VlJ1dGDvmZ2o3rL-nzQl3sp5GxU6ns5X7LoxoCJ-8QAvD_BwE&gclsrc=aw.ds", baby_shower_id: b1.id, user_id: u2.id)
-
+i3 = Item.create(item_name: "dogs", price: 1000, image_url:"lol", listing_url: "listing url", baby_shower_id: b2.id, user_id: u2.id)
 puts "Done seeding"
