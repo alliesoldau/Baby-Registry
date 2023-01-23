@@ -10,8 +10,9 @@ function Navigation({ user, setUser }) {
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
           if (r.ok) {
+
+            history.push("/")
             setUser(null);
-            history.push(`/`)
           }
         });
       }
@@ -25,7 +26,6 @@ function Navigation({ user, setUser }) {
                     </h1>
                 </Link>
                 <div>
-                    {/* TO DO: Why do I need to refresh to have the nav update after signing up/logging in? */}
                     {user ? (
                         <div>
                             <button onClick={handleLogoutClick}>Logout</button>

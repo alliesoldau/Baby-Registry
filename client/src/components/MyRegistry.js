@@ -5,10 +5,8 @@ function MyRegistry( {user} ) {
 
     const [babyShowers, setBabyShowers] = useState([])
 
-    const id = user.id
-
     useEffect(()=>{
-        fetch(`/baby_showers/${id}`)
+        fetch(`/baby_showers/${user.id}`)
         .then(res => {
             if(res.ok){
                 res.json().then(showers => {
