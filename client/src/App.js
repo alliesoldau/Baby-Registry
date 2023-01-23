@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router-dom'
+import {createGlobalStyle} from 'styled-components'
+import SignUp from './components/SignUp'
+import Login from './components/Login'
+import Navigation from './components/Navigation'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <GlobalStyle />
+    <Navigation/>
+      <Switch>
+
+      <Route path='/users/new'>
+        <SignUp />
+      </Route>
+
+      <Route path='/login'>
+        <Login/>
+      </Route>
+      
+      </Switch>
+    </>
+  )
 }
 
 export default App;
+
+const GlobalStyle = createGlobalStyle`
+    body{
+      background-color: black; 
+      color:white;
+    }
+    `
