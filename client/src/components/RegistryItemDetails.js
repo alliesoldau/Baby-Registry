@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 
-function RegistryItemDetails({ item, removeItem }) {
+
+function RegistryItemDetails({ item, removeItem, setItemToEdit }) {
 
     const [claimed, setClaimed] = useState("")
     
@@ -19,6 +21,10 @@ function RegistryItemDetails({ item, removeItem }) {
         removeItem(item.id)
     }
 
+    function handleSelectItem() {
+        setItemToEdit(item)
+    }
+
     return (
         <div className="Registery-Item-Details">
             <p>asdfasdfasdfasdf</p>
@@ -26,7 +32,10 @@ function RegistryItemDetails({ item, removeItem }) {
             <p>Price: {item.price}</p>
             <p>Claimed?: {claimed}</p>
             <p>TO DO: make an image: {item.image_url}</p>
-            <button onClick={handleDelete}>Remove Item From Registry</button>
+            <Link to={`/items/${item.id}/edit/`}>
+                <button onClick={handleSelectItem}>Edit Item</button>
+            </Link>            
+        <button onClick={handleDelete}>Remove Item From Registry</button>
         </div>
     )
 }

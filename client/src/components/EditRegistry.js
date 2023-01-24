@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom'
 import RegistryItemDetails from './RegistryItemDetails';
 
 // TO DO: make it so you can add and remove items from your registry 
 
-function EditRegistry({ registry, removeItem }) {
+function EditRegistry({ registry, removeItem, setItemToEdit }) {
 
     const itemDetails = registry.items.map((item) => {
         return (
@@ -12,6 +12,7 @@ function EditRegistry({ registry, removeItem }) {
                 key={item.id}
                 item={item}
                 removeItem={removeItem}
+                setItemToEdit={setItemToEdit}
             />
         )
     })

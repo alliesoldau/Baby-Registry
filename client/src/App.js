@@ -12,11 +12,13 @@ import AddRegistryForm from './components/AddRegistryForm'
 import EditRegistry from './components/EditRegistry'
 import EditProfile from './components/EditProfile'
 import AddItemToRegistry from './components/AddItemToRegistry';
+import EditItem from './components/EditItem';
 
 function App() {
   
   const [user, setUser] = useState(null);
   const [registry, setRegistry] = useState({});
+  const [itemToEdit, setItemToEdit] = useState({})
 
   function addItemToRegistry(item) {
     let updateRegistry 
@@ -81,7 +83,11 @@ function App() {
         </Route>
 
         <Route path='/baby_showers/:id/edit'>
-          <EditRegistry registry={registry} removeItem={removeItem}/>
+          <EditRegistry registry={registry} removeItem={removeItem} setItemToEdit={setItemToEdit}/>
+        </Route>
+
+        <Route path='/items/:id/edit'>
+          <EditItem itemToEdit={itemToEdit}/>
         </Route>
 
         <Route path='/login'>
