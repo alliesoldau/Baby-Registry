@@ -14,7 +14,7 @@ import EditRegistry from './components/EditRegistry'
 function App() {
   
   const [user, setUser] = useState(null);
-  const [registry, setRegistry] = useState(null);
+  const [registry, setRegistry] = useState({});
   
   useEffect(() => {
     // auto-login

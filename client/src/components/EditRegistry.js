@@ -47,8 +47,6 @@ function EditRegistry({ registry }) {
     // TO DO: Make the date preview with the correct date 
 
     return (
-        <>
-        { formData ? (
         <div className="Edit-Registry-Container">
         <p>Edit Registry</p>
         <form className="Edit-Registry-Form" onSubmit={handleSubmit}>
@@ -75,11 +73,6 @@ function EditRegistry({ registry }) {
         <button type='submit' className="submit">Submit Edits</button>
         </form>
     </div>
-    )  :  (
-    // TO DO: loading screen
-    <p>No user</p>
-    )}
-    </>
     )
 }
 
