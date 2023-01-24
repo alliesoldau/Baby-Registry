@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
 
+// TO DO: make it so you can add and remove items from your registry 
 
 function EditRegistry({ registry }) {
 
@@ -42,7 +43,7 @@ function EditRegistry({ registry }) {
         }
     })
 }
-
+    // TO DO: order registries by their id numbers so they always appear in the same order on the page? 
     // TO DO: Make the date preview with the correct date 
 
     return (
