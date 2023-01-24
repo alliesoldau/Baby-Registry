@@ -1,25 +1,11 @@
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom'
+
 
 function EditRegistry({ registry }) {
 
     console.log(registry)
-
-    // function handleEdit(e) {
-//     e.preventDefault();
-//     fetch(`/baby_showers/${shower.id}`,{
-//         method:'PATCH',
-//         headers: {'Content-Type': 'application/json'},
-//         body:JSON.stringify(formData)
-//       })
-//       .then(res => {
-//         if(res.ok){
-//           res.json().then(updateProduction)
-//         } else {
-//           //Display errors
-//           res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
-//         }
-//       })
-// }
+    const history = useHistory()
 
     const [formData, setFormData] = useState({
         baby_shower_name: registry.baby_shower_name,
@@ -40,11 +26,28 @@ function EditRegistry({ registry }) {
     function handleSubmit(e) {
         e.preventDefault();
         console.log(formData)
-    }
+        fetch(`/baby_showers/${registry.id}/edit`,{
+        method:'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body:JSON.stringify(formData)
+      })
+      .then(res => {
+        if(res.ok){
+            res.json().then(user => {
+                console.log(user)
+                history.push(`/users/${registry.user_id}/baby_showers`)
+            })
+        } else {
+            console.log("Figure out what to do with errors")       
+        }
+    })
+}
 
     // TO DO: Make the date preview with the correct date 
-    
+
     return (
+        <>
+        { formData ? (
         <div className="Edit-Registry-Container">
         <p>Edit Registry</p>
         <form className="Edit-Registry-Form" onSubmit={handleSubmit}>
@@ -71,8 +74,12 @@ function EditRegistry({ registry }) {
         <button type='submit' className="submit">Submit Edits</button>
         </form>
     </div>
+    )  :  (
+    // TO DO: loading screen
+    <p>No user</p>
+    )}
+    </>
     )
-
 }
 
 export default EditRegistry;
