@@ -28,7 +28,7 @@ function App() {
 
   function removeItem(id) {
     let updateRegistry = {...registry}
-    updateRegistry.items = updateRegistry.items.filter(item => item.id != id)
+    updateRegistry.items = updateRegistry.items.filter(item => item.id !== id)
     setRegistry(updateRegistry)
   }
 
