@@ -56,57 +56,59 @@ function App() {
   return (
     <div className="App-container">
     <Navigation user={user} setUser={setUser}/>
-      <Switch>
+      <div className="Body-Container">
+        <Switch>
 
-        <Route exact path='/'>
-          <Home user={user}/>
-        </Route>
+          <Route exact path='/'>
+            <Home user={user}/>
+          </Route>
 
-        <Route path='/users/new'>
-          <SignUp setUser={setUser}/>
-        </Route>
+          <Route path='/users/new'>
+            <SignUp setUser={setUser}/>
+          </Route>
 
-        <Route path='/users/:id/profile/edit'>
-          <EditProfile user={user} setUser={setUser}/>
-        </Route>
+          <Route path='/users/:id/profile/edit'>
+            <EditProfile user={user} setUser={setUser}/>
+          </Route>
 
-        <Route path='/users/:id/profile'>
-          <UserProfile user={user} setUser={setUser}/>
-        </Route>
+          <Route path='/users/:id/profile'>
+            <UserProfile user={user} setUser={setUser}/>
+          </Route>
 
-        <Route path='/users/:id/baby_showers'>
-          <MyRegistry setRegistry={setRegistry}/>
-        </Route>
+          <Route path='/users/:id/baby_showers'>
+            <MyRegistry setRegistry={setRegistry}/>
+          </Route>
 
-        <Route path='/users/:id/gifts'>
-          <MyGifts myGifts={myGifts} setMyGifts={setMyGifts} surrenderItem={surrenderItem}/>
-        </Route>
+          <Route path='/users/:id/gifts'>
+            <MyGifts myGifts={myGifts} setMyGifts={setMyGifts} surrenderItem={surrenderItem}/>
+          </Route>
 
-        <Route path='/users/:id/add_registry'>
-          <AddRegistryForm />
-        </Route>
+          <Route path='/users/:id/add_registry'>
+            <AddRegistryForm />
+          </Route>
 
-        <Route path='/users/:id'>
-          <UserHomePage user={user} setUser={setUser}/>
-        </Route>
+          <Route path='/users/:id'>
+            <UserHomePage user={user} setUser={setUser}/>
+          </Route>
 
-        <Route path='/baby_showers/:id/add_items'>
-          <AddItemToRegistry registry={registry} addItemToRegistry={addItemToRegistry}/>  
-        </Route>
+          <Route path='/baby_showers/:id/add_items'>
+            <AddItemToRegistry registry={registry} addItemToRegistry={addItemToRegistry}/>  
+          </Route>
 
-        <Route path='/baby_showers/:id/edit'>
-          <EditRegistry registry={registry} removeItem={removeItem} setItemToEdit={setItemToEdit}/>
-        </Route>
+          <Route path='/baby_showers/:id/edit'>
+            <EditRegistry registry={registry} removeItem={removeItem} setItemToEdit={setItemToEdit}/>
+          </Route>
 
-        <Route path='/items/:id/edit'>
-          <EditItem itemToEdit={itemToEdit} setUpdatedItem={setUpdatedItem}/>
-        </Route>
+          <Route path='/items/:id/edit'>
+            <EditItem itemToEdit={itemToEdit} setUpdatedItem={setUpdatedItem}/>
+          </Route>
 
-        <Route path='/login'>
-          <Login setUser={setUser}/>
-        </Route>
-      
-      </Switch>
+          <Route path='/login'>
+            <Login setUser={setUser}/>
+          </Route>
+        
+        </Switch>
+      </div>
     </div>
   )
 }

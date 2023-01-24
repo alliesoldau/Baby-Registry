@@ -18,17 +18,16 @@ function Navigation({ user, setUser }) {
 
     return(
         <div className="Navigation-Container">
-            <header>
+            <header className="Nav-Bar">
                 <Link exact to="/">
                     <h1>
                         Baby Registry
                     </h1>
                 </Link>
-                <div>
+                <div className="Nav-Bar-All-Links-Container">
                     {user ? (
-                        <div>
-                            <button onClick={handleLogoutClick}>Logout</button>
-                            <div className="Nav-Link-Container">
+                        <div className="Nav-Bar-All-Links">
+                            {/* <div className="Nav-Link-Container"> */}
                                 <NavLink className="NavLink-Button" to={`/users/${user.id}/profile`}>
                                     User Profile
                                 </NavLink>
@@ -38,7 +37,8 @@ function Navigation({ user, setUser }) {
                                 <NavLink className="NavLink-Button" to={`/users/${user.id}/gifts`}>
                                     Things I'm Gifting
                                 </NavLink>
-                            </div>
+                            {/* </div> */}
+                            <button onClick={handleLogoutClick}>Logout</button>
                         </div>                    
                     ) : (
                     <div className="Login-Signup-Container">
@@ -47,7 +47,6 @@ function Navigation({ user, setUser }) {
                     </div>
                     )}
                 </div>
-
             </header>
         </div>
     )
