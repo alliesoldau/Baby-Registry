@@ -31,6 +31,12 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         render json: user, status: :created
     end 
+
+    def delete_account
+        user = User.find(params[:id])
+        user.destroy
+        head :no_content 
+    end
     
     private 
 

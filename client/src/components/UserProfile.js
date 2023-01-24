@@ -1,8 +1,21 @@
 import React from 'react';
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
+function UserProfile({ user, setUser }) {
 
-function UserProfile({ user }) {
+    const history = useHistory()
+
+    function handleDelete() {
+        fetch(`/delete_account/${user.id}`, {
+            method: 'DELETE'
+        })
+        fetch("/logout", { method: "DELETE" }).then((r) => {
+            if (r.ok) {
+              history.push("/")
+              setUser(null);
+            }
+          })
+    }
     
     return (
         <>
@@ -19,6 +32,7 @@ function UserProfile({ user }) {
             <p>City: {user.city}</p>
             <p>State: {user.state}</p>
             <p>Email: {user.email}</p>
+            <button onClick={handleDelete}>Delete My Profile</button>
         </div>
             )  :  (
             // TO DO: loading screen

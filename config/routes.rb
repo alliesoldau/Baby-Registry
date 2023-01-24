@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   patch 'users/:id/profile/edit', to: 'users#edit_profile'
   patch '/baby_showers/:id/edit', to: 'baby_showers#update'
+  delete '/delete_account/:id', to: 'users#delete_account'
   delete '/logout', to: 'sessions#destroy'
 
 end

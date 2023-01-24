@@ -44,7 +44,7 @@ function App() {
         </Route>
 
         <Route path='/users/:id/profile'>
-          <UserProfile user={user}/>
+          <UserProfile user={user} setUser={setUser}/>
         </Route>
 
         <Route path='/users/:id/baby_showers'>
