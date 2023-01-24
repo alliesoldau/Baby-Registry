@@ -26,7 +26,6 @@ function EditProfile({ user }) {
      
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(formData)
         fetch(`/users/${user.id}/profile/edit`,{
         method:'PATCH',
         headers: {'Content-Type': 'application/json'},
@@ -35,7 +34,6 @@ function EditProfile({ user }) {
       .then(res => {
         if(res.ok){
             res.json().then(user => {
-                console.log(user)
                 history.push(`/users/${user.id}/profile`)
             })
         } else {

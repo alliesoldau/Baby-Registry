@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
+import RegistryItemDetails from './RegistryItemDetails';
 
 // TO DO: make it so you can add and remove items from your registry 
 
 function EditRegistry({ registry }) {
 
-    console.log(registry)
+    const items = registry.items
+
+    const itemDetails = items.map((item) => {
+        return (
+            <RegistryItemDetails
+                key={item.id}
+                item={item}
+            />
+        )
+    })
+
     const history = useHistory()
 
     const [formData, setFormData] = useState({
@@ -26,7 +37,6 @@ function EditRegistry({ registry }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(formData)
         fetch(`/baby_showers/${registry.id}/edit`,{
         method:'PATCH',
         headers: {'Content-Type': 'application/json'},
@@ -35,7 +45,6 @@ function EditRegistry({ registry }) {
       .then(res => {
         if(res.ok){
             res.json().then(user => {
-                console.log(user)
                 history.push(`/users/${registry.user_id}/baby_showers`)
             })
         } else {
@@ -72,6 +81,7 @@ function EditRegistry({ registry }) {
             </div>
         <button type='submit' className="submit">Submit Edits</button>
         </form>
+        {itemDetails}
     </div>
     )
 }
