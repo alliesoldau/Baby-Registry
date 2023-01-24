@@ -2,8 +2,6 @@ import React from 'react';
 import ItemDetails from './ItemDetails';
 import { Link } from "react-router-dom"
 
-
-
 function ShowerDetails({ shower, setRegistry }) {
 
     function handleDelete() {

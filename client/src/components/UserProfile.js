@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom"
+
 
 function UserProfile({ user }) {
     
@@ -7,6 +9,9 @@ function UserProfile({ user }) {
         { user ? (
             <div className="User-Profile">
             <p>{user.username}'s Profile</p>
+            <Link to={`/users/${user.id}/profile/edit`}>
+                <button>Edit Profile</button>
+            </Link>
             <p>First name: {user.first_name}</p>
             <p>Last name: {user.last_name}</p>
             <p>Gender: {user.gender}</p>

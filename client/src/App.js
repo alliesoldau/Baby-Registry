@@ -10,6 +10,7 @@ import MyRegistry from './components/MyRegistry'
 import MyGifts from './components/MyGifts'
 import AddRegistryForm from './components/AddRegistryForm'
 import EditRegistry from './components/EditRegistry'
+import EditProfile from './components/EditProfile'
 
 function App() {
   
@@ -36,6 +37,10 @@ function App() {
 
         <Route path='/users/new'>
           <SignUp setUser={setUser}/>
+        </Route>
+
+        <Route path='/users/:id/profile/edit'>
+          <EditProfile user={user}/>
         </Route>
 
         <Route path='/users/:id/profile'>
