@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function RegistryItemDetails({ item }) {
+function RegistryItemDetails({ item, filterItems }) {
 
     const [claimed, setClaimed] = useState("")
     
@@ -14,9 +14,10 @@ function RegistryItemDetails({ item }) {
 
     function handleDelete() {
         // TO DO: Delete this item
-        // fetch(`/item/${item.id}`, {
-        //     method: 'DELETE'
-        // })
+        fetch(`/items/${item.id}`, {
+            method: 'DELETE'
+        })
+        filterItems(item.id)
     }
 
     return (

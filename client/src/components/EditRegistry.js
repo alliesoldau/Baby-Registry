@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useHistory} from 'react-router-dom'
 import RegistryItemDetails from './RegistryItemDetails';
 
@@ -6,13 +6,24 @@ import RegistryItemDetails from './RegistryItemDetails';
 
 function EditRegistry({ registry }) {
 
-    const items = registry.items
+    const [items, setItems] = useState(registry.items)
+    
+    // console.log(`item[0]: ${items[0].item_name}`)
+
+    function filterItems(id) {
+        // console.log(`id: ${id}`)
+        console.log(`pre filter: ${items[0].item_name}`)
+        const filterArray = items.filter(item => item.id != id)
+        setItems(filterArray)
+        // console.log(`post filter: ${filterArray[0].item_name}`)
+    }
 
     const itemDetails = items.map((item) => {
         return (
             <RegistryItemDetails
                 key={item.id}
                 item={item}
+                filterItems={filterItems}
             />
         )
     })
