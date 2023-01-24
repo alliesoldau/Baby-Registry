@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
 
-function AddItemToRegistry({ registry }) {
+function AddItemToRegistry({ registry, addItemToRegistry }) {
 
     console.log(`baby shower id: ${registry.id}`)
 
@@ -41,7 +41,8 @@ function AddItemToRegistry({ registry }) {
             .then(res => {
                 if(res.ok){
                     res.json().then(item => {
-                        history.push(`baby_showers/${registry.id}/edit`)
+                        history.push(`/baby_showers/${registry.id}/edit`)
+                        addItemToRegistry(item)
                     })
                 } else {
                     console.log("Figure out what to do with errors")

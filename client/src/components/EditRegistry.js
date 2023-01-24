@@ -1,28 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom'
 import RegistryItemDetails from './RegistryItemDetails';
 
 // TO DO: make it so you can add and remove items from your registry 
 
-function EditRegistry({ registry }) {
+function EditRegistry({ registry, removeItem }) {
 
-    const [items, setItems] = useState(registry.items)
-
-    function filterItems(id) {
-        console.log(`pre filter: ${items[0].item_name}`)
-        const filterArray = items.filter(item => item.id != id)
-        setItems(filterArray)
-    }
-
-    const itemDetails = items ? items.map((item) => {
+    const itemDetails = registry.items.map((item) => {
         return (
             <RegistryItemDetails
                 key={item.id}
                 item={item}
-                filterItems={filterItems}
+                removeItem={removeItem}
             />
         )
-    }) : null
+    })
 
     const history = useHistory()
 

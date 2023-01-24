@@ -17,7 +17,19 @@ function App() {
   
   const [user, setUser] = useState(null);
   const [registry, setRegistry] = useState({});
-  
+
+  function addItemToRegistry(item) {
+    let updateRegistry 
+    updateRegistry = {...registry, items: [...registry.items, item]}
+    setRegistry(updateRegistry)
+  }
+
+  function removeItem(id) {
+    let updateRegistry = {...registry}
+    updateRegistry.items = updateRegistry.items.filter(item => item.id != id)
+    setRegistry(updateRegistry)
+  }
+
   useEffect(() => {
     // auto-login
     fetch("/authorized").then((r) => {
@@ -65,11 +77,11 @@ function App() {
         </Route>
 
         <Route path='/baby_showers/:id/add_items'>
-          <AddItemToRegistry registry={registry}/>
+          <AddItemToRegistry registry={registry} addItemToRegistry={addItemToRegistry}/>  
         </Route>
 
         <Route path='/baby_showers/:id/edit'>
-          <EditRegistry registry={registry}/>
+          <EditRegistry registry={registry} removeItem={removeItem}/>
         </Route>
 
         <Route path='/login'>
