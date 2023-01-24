@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import ShowerDetails from './ShowerDetails'
 import { useHistory, useParams } from 'react-router-dom'
 
-function MyRegistry() {
+function MyRegistry({ setRegistry }) {
 
     const params = useParams()
     const history = useHistory()
@@ -27,6 +27,7 @@ function MyRegistry() {
             <ShowerDetails
                 key={shower.id}
                 shower={shower}
+                setRegistry={setRegistry}
             />
         )
     })
