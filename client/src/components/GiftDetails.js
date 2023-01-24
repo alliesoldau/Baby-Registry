@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GiftDetails({ gift }) {
+function GiftDetails({ gift, surrenderItem }) {
 
     function handleSurrenderItem(e) {
         e.preventDefault();
@@ -14,6 +14,7 @@ function GiftDetails({ gift }) {
             if(res.ok){
                 res.json().then(item => {
                     console.log(`item.user_id: ${item.user_id}`)
+                    surrenderItem(item)
                 })
             } else {
                 console.log("Figure out what to do with errors")       

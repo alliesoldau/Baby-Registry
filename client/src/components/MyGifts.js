@@ -1,12 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import GiftDetails from './GiftDetails'
 import {useParams} from 'react-router-dom'
 
-function MyGifts() {
+function MyGifts({ myGifts, setMyGifts, surrenderItem }) {
 
     const params = useParams()
-
-    const [myGifts, setMyGifts] = useState([])
 
     useEffect(()=>{
         fetch(`/users/${params.id}/gifts`)
@@ -26,6 +24,7 @@ function MyGifts() {
             <GiftDetails
                 key={gift.id}
                 gift={gift}
+                surrenderItem={surrenderItem}
             />
         )
     })

@@ -18,7 +18,8 @@ function App() {
   
   const [user, setUser] = useState(null);
   const [registry, setRegistry] = useState({});
-  const [itemToEdit, setItemToEdit] = useState({})
+  const [itemToEdit, setItemToEdit] = useState({});
+  const [myGifts, setMyGifts] = useState([])
 
   function addItemToRegistry(item) {
     let updateRegistry 
@@ -36,6 +37,11 @@ function App() {
     let updateRegistry = {...registry}
     updateRegistry.items = registry.items.map((item)=>item.id === itemToUpdate.id ? itemToUpdate : item)
     setRegistry(updateRegistry)  
+  }
+
+  function surrenderItem(itemToSurrender) {
+    const updateGifts = myGifts.filter((gift) => gift.id !== itemToSurrender.id)
+    setMyGifts(updateGifts)
   }
 
   useEffect(() => {
@@ -73,7 +79,7 @@ function App() {
         </Route>
 
         <Route path='/users/:id/gifts'>
-          <MyGifts/>
+          <MyGifts myGifts={myGifts} setMyGifts={setMyGifts} surrenderItem={surrenderItem}/>
         </Route>
 
         <Route path='/users/:id/add_registry'>
