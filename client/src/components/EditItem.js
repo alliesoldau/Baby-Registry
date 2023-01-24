@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom'
 
-function EditItem({ itemToEdit }) {
+function EditItem({ itemToEdit, setUpdatedItem }) {
 
     const history = useHistory()
 
@@ -42,6 +42,7 @@ function EditItem({ itemToEdit }) {
         if(res.ok){
             res.json().then(item => {
                 history.push(`/baby_showers/${itemToEdit.baby_shower_id}/edit`)
+                setUpdatedItem(item)
             })
         } else {
             console.log("Figure out what to do with errors")       

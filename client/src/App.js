@@ -32,6 +32,13 @@ function App() {
     setRegistry(updateRegistry)
   }
 
+  function setUpdatedItem(itemToUpdate) {
+    let updateRegistry = {...registry}
+    updateRegistry.items = registry.items.map((item)=>item.id === itemToUpdate.id ? itemToUpdate : item)
+    setRegistry(updateRegistry)  
+  }
+
+
   useEffect(() => {
     // auto-login
     fetch("/authorized").then((r) => {
@@ -87,7 +94,7 @@ function App() {
         </Route>
 
         <Route path='/items/:id/edit'>
-          <EditItem itemToEdit={itemToEdit}/>
+          <EditItem itemToEdit={itemToEdit} setUpdatedItem={setUpdatedItem}/>
         </Route>
 
         <Route path='/login'>
