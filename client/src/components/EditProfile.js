@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
 
-function EditProfile({ user }) {
+function EditProfile({ user, setUser }) {
 
     const history = useHistory()
 
@@ -35,6 +35,7 @@ function EditProfile({ user }) {
         if(res.ok){
             res.json().then(user => {
                 history.push(`/users/${user.id}/profile`)
+                setUser(user)
             })
         } else {
             console.log("Figure out what to do with errors")       
