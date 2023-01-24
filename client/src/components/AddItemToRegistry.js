@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom'
 
 function AddItemToRegistry({ registry }) {
 
+    console.log(`baby shower id: ${registry.id}`)
+
     const [formData, setFormData] = useState({
         item_name:'',
         price:'',
@@ -31,7 +33,7 @@ function AddItemToRegistry({ registry }) {
             user_id
         }
         // TO DO: Once item is added to baby shower the route is messed up. maybe add local host
-        fetch(`/baby_showers/${registry.baby_shower_id}/add_items`, {
+        fetch(`/baby_showers/${registry.id}/add_items`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(item)
@@ -39,7 +41,7 @@ function AddItemToRegistry({ registry }) {
             .then(res => {
                 if(res.ok){
                     res.json().then(item => {
-                        history.push(`baby_showers/${registry.baby_shower_id}/edit`)
+                        history.push(`baby_showers/${registry.id}/edit`)
                     })
                 } else {
                     console.log("Figure out what to do with errors")
@@ -71,7 +73,7 @@ function AddItemToRegistry({ registry }) {
                         <label>Listing URL</label> 
                         <input type='text' name='listing_url' value={listing_url} onChange={handleChange} />
                     </div>
-                    <button type='submit' className="submit">Create Registry</button>
+                    <button type='submit' className="submit">Create Item</button>
                 </form>
             </div>
         )
