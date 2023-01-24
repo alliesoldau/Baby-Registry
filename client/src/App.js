@@ -11,6 +11,7 @@ import MyGifts from './components/MyGifts'
 import AddRegistryForm from './components/AddRegistryForm'
 import EditRegistry from './components/EditRegistry'
 import EditProfile from './components/EditProfile'
+import AddItemToRegistry from './components/AddItemToRegistry';
 
 function App() {
   
@@ -52,7 +53,7 @@ function App() {
         </Route>
 
         <Route path='/users/:id/gifts'>
-          <MyGifts />
+          <MyGifts/>
         </Route>
 
         <Route path='/users/:id/add_registry'>
@@ -61,6 +62,10 @@ function App() {
 
         <Route path='/users/:id'>
           <UserHomePage user={user} setUser={setUser}/>
+        </Route>
+
+        <Route path='/baby_showers/:id/add_items'>
+          <AddItemToRegistry registry={registry}/>
         </Route>
 
         <Route path='/baby_showers/:id/edit'>

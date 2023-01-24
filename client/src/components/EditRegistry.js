@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {useHistory} from 'react-router-dom'
+import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom'
 import RegistryItemDetails from './RegistryItemDetails';
 
 // TO DO: make it so you can add and remove items from your registry 
@@ -7,18 +7,14 @@ import RegistryItemDetails from './RegistryItemDetails';
 function EditRegistry({ registry }) {
 
     const [items, setItems] = useState(registry.items)
-    
-    // console.log(`item[0]: ${items[0].item_name}`)
 
     function filterItems(id) {
-        // console.log(`id: ${id}`)
         console.log(`pre filter: ${items[0].item_name}`)
         const filterArray = items.filter(item => item.id != id)
         setItems(filterArray)
-        // console.log(`post filter: ${filterArray[0].item_name}`)
     }
 
-    const itemDetails = items.map((item) => {
+    const itemDetails = items ? items.map((item) => {
         return (
             <RegistryItemDetails
                 key={item.id}
@@ -26,7 +22,7 @@ function EditRegistry({ registry }) {
                 filterItems={filterItems}
             />
         )
-    })
+    }) : null
 
     const history = useHistory()
 
@@ -92,6 +88,9 @@ function EditRegistry({ registry }) {
             </div>
         <button type='submit' className="submit">Submit Edits</button>
         </form>
+        <Link to={`/baby_showers/${registry.id}/add_items`}>
+            <button>Add Items to This Registry</button>
+        </Link>
         {itemDetails}
     </div>
     )

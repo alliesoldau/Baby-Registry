@@ -13,7 +13,6 @@ function RegistryItemDetails({ item, filterItems }) {
         }},[])
 
     function handleDelete() {
-        // TO DO: Delete this item
         fetch(`/items/${item.id}`, {
             method: 'DELETE'
         })
@@ -21,14 +20,13 @@ function RegistryItemDetails({ item, filterItems }) {
     }
 
     return (
-        <div className="Item-Details">
+        <div className="Registery-Item-Details">
             <p>asdfasdfasdfasdf</p>
             <p>Item Name: {item.item_name}</p>
             <p>Price: {item.price}</p>
             <p>Claimed?: {claimed}</p>
             <p>TO DO: make an image: {item.image_url}</p>
             <button onClick={handleDelete}>Remove Item From Registry</button>
-
         </div>
     )
 }

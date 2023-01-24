@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/users/:id/baby_showers', to: 'users#show_showers'
   get '/users/:id/gifts', to: 'users#show_gifts'
   post '/login', to: 'sessions#create'
+  post '/baby_showers/:id/add_items', to: 'baby_showers#create'
   patch 'users/:id/profile/edit', to: 'users#edit_profile'
   patch '/baby_showers/:id/edit', to: 'baby_showers#update'
   delete '/delete_account/:id', to: 'users#delete_account'
