@@ -38,7 +38,6 @@ function App() {
     setRegistry(updateRegistry)  
   }
 
-
   useEffect(() => {
     // auto-login
     fetch("/authorized").then((r) => {

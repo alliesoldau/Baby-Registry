@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
     end 
 
     def create
+        byebug
         item = Item.create!(item_params)
         render json: item, status: :created
     end 
@@ -29,7 +30,7 @@ class ItemsController < ApplicationController
     private
     
     def item_params
-        params.permit(:item_name, :price, :image_url, :listing_url, :baby_shower_id, :claimed, :user_id)
+        params.permit(:item_name, :price, :image_url, :listing_url, :baby_shower_id, :claimed)
     end 
 
 end
