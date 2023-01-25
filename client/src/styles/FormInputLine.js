@@ -9,10 +9,10 @@ const FormInputLine = styled.div`
     margin-right: 5px;
 
 label {
+    color: ${props => props.bg === "bone" ? "#3C4F76" : "#fff"};
     margin-top: auto;
     margin-bottom: auto;
     font-weight: bold;
-    color: #fff;
     display: inline-block;
     float: left;
     clear: left;

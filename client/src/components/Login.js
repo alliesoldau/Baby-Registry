@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
+import Form from '../styles/Form';
+import FormInputLine from '../styles/FormInputLine';
+import ButtonContainer from '../styles/ButtonContainer';
 
 function Login({ setUser }) {
 
@@ -41,20 +44,22 @@ function Login({ setUser }) {
       }
 
     return(
-        <div className="Login-Container">
-            <p>Login</p>
+        <Form bg={"white"}>
+            <h2>Login</h2>
             <form className="Login-Form" onSubmit={handleSubmit}>
-                <div className="Form-Field">
+                <FormInputLine bg={"bone"}>
                     <label>Username</label>
                     <input type='text' name='username' value={username} onChange={handleChange} />
-                </div>
-                <div className="Form-Field">
+                </FormInputLine>
+                <FormInputLine bg={"bone"}>
                     <label>Password</label>
                     <input type='password' name='password' value={password} onChange={handleChange} />
-                </div>
-            <button type='submit' className="submit">Login</button>
+                </FormInputLine>
+                <ButtonContainer bg={"bone"}>
+                    <button type='submit' className="Submit-Button">Login</button>
+                </ButtonContainer>
             </form>
-        </div>
+        </Form>
     )
 }
 

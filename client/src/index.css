@@ -84,3 +84,7 @@ code {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.Home-Page {
+  padding: 40px;
+}
