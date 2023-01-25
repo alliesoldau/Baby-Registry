@@ -9,14 +9,19 @@ const LineItem = styled.div`
 h4 {
     margin: 5px;
     color: var(--blue);
+    font-family: Courier New;
+    font-size: 20px;
+    line-height: 30px;
   }
 
 p {
-    font-size: 16px;
     line-height: 26px;
     color: var(--blue);
     margin: 5px;
     vertical-align: center;
+    font-family: Tahoma;
+    font-size: 16px;
+    line-height: 26px;
 }`
 
 

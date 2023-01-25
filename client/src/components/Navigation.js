@@ -20,7 +20,7 @@ function Navigation({ user, setUser }) {
         <div className="Navigation-Container">
             <header className="Nav-Bar">
                 <Link exact to="/">
-                    <h1>
+                    <h1 className="Baby-Registry-Header">
                         Baby Registry
                     </h1>
                 </Link>
@@ -36,6 +36,9 @@ function Navigation({ user, setUser }) {
                                 </NavLink>
                                 <NavLink className="NavLink-Button" to={`/users/${user.id}/gifts`}>
                                     Things I'm Gifting
+                                </NavLink>
+                                <NavLink className="NavLink-Button" to={`/users/search`}>
+                                    Search for Friends
                                 </NavLink>
                             {/* </div> */}
                             <Button>

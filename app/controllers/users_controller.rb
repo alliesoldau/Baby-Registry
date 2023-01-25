@@ -5,6 +5,11 @@ class UsersController < ApplicationController
         render json: current_user, status: :ok
     end 
 
+    def search 
+        users = User.filtered_users(params[:search])
+        render json: users, status: :ok
+    end 
+
     def index 
         render json: current_user, status: :ok
     end 

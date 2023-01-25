@@ -6,4 +6,8 @@ class User < ApplicationRecord
     has_many :baby_showers, dependent: :destroy
     has_many :items, dependent: :destroy
     has_many :baby_showers, through: :items
+
+    def self.filtered_users(search)
+        self.where('username like ?', "%" + search + "%")
+    end
 end

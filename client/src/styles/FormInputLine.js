@@ -7,7 +7,6 @@ const FormInputLine = styled.div`
     flex-direction: row;
     margin-left: 5px;
     margin-right: 5px;
-
 label {
     color: ${props => props.bg === "bone" ? "#3C4F76" : "#fff"};
     margin-top: auto;
@@ -19,7 +18,6 @@ label {
     width: 250px;
     text-align: left;
   }
-
 input {
     display: inline-block;
     float: left;

@@ -12,7 +12,7 @@ function UserHomePage({ user, setUser }) {
                 res.json().then(user => {
                     setUser(user)   
                 })
-            }else {
+            } else {
                 console.log("Figure out what to do with errors")
             }
         })

@@ -25,6 +25,11 @@ code {
 .App-container {
  display: flex;
  flex-direction: column;
+ font-family: Georgia;
+}
+
+.Baby-Registry-Header {
+  font-family: Georgia;
 }
 
 .Body-Container {
@@ -35,6 +40,8 @@ code {
 
 .Navigation-Container {
   display: flex;
+  font-family: Tahoma;
+  font-weight: bold;
   flex-direction: column;
   height: auto;
   color: var(--bone);
@@ -74,7 +81,7 @@ code {
 }
 
 .Navigation-Container a:hover {
-  font-weight: bold;
+  text-decoration: underline;
 }
 
 .My-Registry-Details, .My-Gifts, .Item-Details-Container {

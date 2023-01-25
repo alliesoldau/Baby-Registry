@@ -13,6 +13,7 @@ import EditRegistry from './components/EditRegistry'
 import EditProfile from './components/EditProfile'
 import AddItemToRegistry from './components/AddItemToRegistry';
 import EditItem from './components/EditItem';
+import SearchForFriends from './components/SearchForFriends';
 
 // styled components: https://www.smashingmagazine.com/2020/07/styled-components-react/ 
 
@@ -21,7 +22,21 @@ function App() {
   const [user, setUser] = useState(null);
   const [registry, setRegistry] = useState({});
   const [itemToEdit, setItemToEdit] = useState({});
-  const [myGifts, setMyGifts] = useState([])
+  const [myGifts, setMyGifts] = useState([]);
+  const [allUsers, setAllUsers] = useState({});
+
+  useEffect(() => {
+    fetch(`/users/search`)
+        .then(res => {
+            if(res.ok){
+                res.json().then(users => {
+                  setAllUsers(users)   
+                })
+            } else {
+                console.log("Figure out what to do with errors")
+            }
+        })
+  },[])
 
   function addItemToRegistry(item) {
     let updateRegistry 
@@ -67,6 +82,10 @@ function App() {
 
           <Route path='/users/new'>
             <SignUp setUser={setUser}/>
+          </Route>
+
+          <Route path='/users/search'>
+            <SearchForFriends allUsers={allUsers}/>
           </Route>
 
           <Route path='/users/:id/profile/edit'>

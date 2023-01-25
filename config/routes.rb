@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # Custom auth Routes
   get '/authorized', to: 'users#show'
+  get '/users/search/:search', to: 'users#search'
   get '/users/:id/baby_showers', to: 'users#show_showers'
   get '/users/:id/gifts', to: 'users#show_gifts'
   post '/login', to: 'sessions#create'

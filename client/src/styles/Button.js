@@ -11,6 +11,8 @@ const COLORS = {
   const Button = styled.div`
     display: flex;
     margin-top: 10px;
+    font-family: Verdana;
+    font-weight: bold;
     button {
         background-color: var(--green);
         color: #fff;
@@ -22,13 +24,14 @@ const COLORS = {
         border: none;
     }  
     button:hover {
-        font-weight: bold;
+        text-decoration: underline;
     }
     button.Logout-Button {
         background-color: var(--pink);
         color: #fff;
         font-size: 1em;
         margin: 0px;
+        font-weight: bold;
     }
     button.Submit-Button{
         background-color: var(--blue);

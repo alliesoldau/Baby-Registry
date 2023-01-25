@@ -40,7 +40,7 @@ function ShowerDetails({ shower, setRegistry }) {
             </ButtonContainer>
             <LineItem>
                 <h4>Date</h4>
-                <p>${shower.date}</p>
+                <p>{shower.date}</p>
             </LineItem>
             <LineItem>
                 <h4>Address</h4>

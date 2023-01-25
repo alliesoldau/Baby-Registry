@@ -14,6 +14,8 @@ button {
     font-size: 16px;
     width: auto;
     margin: 5px;
+    font-family: Verdana;
+    font-weight: bold;
 }
 button.Edit-Button {
     background-color: var(--pink);
@@ -28,7 +30,7 @@ button.Submit-Button-Purple {
     background-color: var(--purple);
 }
 button:hover {
-    font-weight: bold;
+    text-decoration: underline;
 }  
 `
 

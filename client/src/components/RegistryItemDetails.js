@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import Card from '../styles/Card';
 import LineItem from '../styles/LineItem';
@@ -6,6 +6,16 @@ import ButtonContainer from '../styles/ButtonContainer';
 
 function RegistryItemDetails({ item, removeItem, setItemToEdit }) {
 
+    const [claimed, setClaimed] = useState("")
+
+    useEffect(() => {
+        if (item.user_id) {
+            setClaimed("Yes")
+        } else {
+            setClaimed("No")
+        }
+    },[])
+    
     function handleDelete() {
         fetch(`/items/${item.id}`, {
             method: 'DELETE'
@@ -19,7 +29,7 @@ function RegistryItemDetails({ item, removeItem, setItemToEdit }) {
 
     return (
         <div className="Registery-Item-Details">
-            <Card>
+            <Card claimed={claimed}>
                 <LineItem>
                     <h4>Item</h4>
                     <p>{item.item_name}</p>
@@ -35,8 +45,8 @@ function RegistryItemDetails({ item, removeItem, setItemToEdit }) {
                 <LineItem>
                     {/* TO DO: check to see if its claimed  */}
                     {/* TO DO: change color depending on if its claimed or not? */}
-                    <h4>Claimed</h4>
-                    <p>CHECK TO SEE IF ITS CLAIMED</p>
+                    <h4>Claimed?</h4>
+                    <p>{claimed}</p>
                 </LineItem>
                 <ButtonContainer>
                     <Link to={`/items/${item.id}/edit/`}>

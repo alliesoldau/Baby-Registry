@@ -13,7 +13,7 @@ display:flex;
 flex-direction:column;
 justify-content:start;
 margin: 10px;
-background-color: #fff;
+background-color: ${props => props.claimed === "Yes" ? "#D3D3D3" : "#FFF"};
 width: 250px;
 border-radius: 6px;
 box-shadow: 0 2px 5px var(--purple);
