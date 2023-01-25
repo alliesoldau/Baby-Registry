@@ -9,15 +9,8 @@ function UserDetails({ user }) {
             <div className="Profile-Image">
                 <img src={user.image_url}/>
             </div>
-            <h4>{user.username}'s Profile</h4>
-            <LineItem>
-                <h4>First name</h4>
-                <p>{user.first_name}</p>
-            </LineItem>
-            <LineItem>
-                <h4>Last name</h4>
-                <p>{user.last_name}</p>
-            </LineItem>
+            <h2>{user.username}</h2>
+            <h4><i>{user.first_name} {user.last_name}</i></h4>
         </UserDetailStyles>
     )
 }

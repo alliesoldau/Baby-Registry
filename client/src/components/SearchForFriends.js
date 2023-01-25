@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '../styles/Button'
 import UserDetails from './UserDetails';
 
 function SearchForFriends({ searchUsers, setSearchUsers }) {
 
     const [search, setSearch] = useState("");
+
+    useEffect(() => {
+        setSearchUsers([])
+    },[])
 
 
     function handleSubmit(e) {

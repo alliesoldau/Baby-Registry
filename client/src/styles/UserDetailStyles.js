@@ -11,44 +11,49 @@ const COLORS = {
 // source help: https://www.bypeople.com/profile-card-hover-effect/ 
 
   const UserDetailStyles = styled.div`
-    width: 400px;
+    width: 300px;
     margin: 120px auto 120px;
-    background-color: #fff;
+    background-color: var(--green);
     padding: 0 20px 20px;
     border-radius: 6px;
+    text-align: center;
     box-shadow: 0 2px 5px var(--purple);
+    color: #fff;
     h2 {
         font-size: 32px;
         font-weight: 600;
         margin-bottom: 15px;
-        color: var(--purple);
+        color: #fff;
         text-align: center;
       } 
     h4 {
         margin: 5px;
-        color: var(--blue);
+        color: #fff;
+        font-family: Courier New;
+        font-size: 20px;
+        line-height: 30px;
     }
     .Profile-Image {
         background-color: #fff;
         border-radius: 100px;
         overflow: hidden;
-        height: 200px;
-        width: 200px;
+        height: 150px;
+        width: 150px;
         position: relative;
         margin: auto;
         top: -60px;
         box-shadow: 0 0 0 13px var(--bone);
     }
     img {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
     }
     p {
         font-size: 16px;
         line-height: 26px;
-        color: var(--blue);
         margin: 5px;
         vertical-align: center;
+        color: #fff;
       }
   `
 
