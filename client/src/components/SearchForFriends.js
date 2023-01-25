@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
 import Button from '../styles/Button'
+import UserDetails from './UserDetails';
 
-function SearchForFriends({ allUsers }) {
+function SearchForFriends({ searchUsers, setSearchUsers }) {
 
     const [search, setSearch] = useState("");
-    const [searchedUsers, setSearachedUsers] = useState({allUsers});
 
-    // TO DO: should I have it filter out the current user from the results?
 
     function handleSubmit(e) {
         e.preventDefault();
         console.log(`search: ${search}`)
         fetch(`/users/search/${search}`)
         .then(resp => resp.json())
-        .then((searchData) => setSearachedUsers(searchData))
+        .then((searchData) => setSearchUsers(searchData))
     }
 
-    console.log(searchedUsers)
+    const userDetails = searchUsers.map((user) => {
+        return (
+            <UserDetails
+                key={user.id}
+                user={user}
+            />
+        )
+    })
+
+    console.log(`search term: ${search}`)
+    // console.log(searchedUsers)
 
     return (
         <>
@@ -35,6 +44,7 @@ function SearchForFriends({ allUsers }) {
                     <button type="Submit-Button">Search</button>
                 </Button>
             </form>
+            {userDetails}
         </>
     )
 }

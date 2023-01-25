@@ -23,20 +23,7 @@ function App() {
   const [registry, setRegistry] = useState({});
   const [itemToEdit, setItemToEdit] = useState({});
   const [myGifts, setMyGifts] = useState([]);
-  const [allUsers, setAllUsers] = useState({});
-
-  useEffect(() => {
-    fetch(`/users/search`)
-        .then(res => {
-            if(res.ok){
-                res.json().then(users => {
-                  setAllUsers(users)   
-                })
-            } else {
-                console.log("Figure out what to do with errors")
-            }
-        })
-  },[])
+  const [searchUsers, setSearchUsers] = useState([])
 
   function addItemToRegistry(item) {
     let updateRegistry 
@@ -85,7 +72,7 @@ function App() {
           </Route>
 
           <Route path='/users/search'>
-            <SearchForFriends allUsers={allUsers}/>
+            <SearchForFriends searchUsers={searchUsers} setSearchUsers={setSearchUsers}/>
           </Route>
 
           <Route path='/users/:id/profile/edit'>

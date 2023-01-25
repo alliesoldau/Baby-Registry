@@ -10,4 +10,10 @@ class User < ApplicationRecord
     def self.filtered_users(search)
         self.where('lower(username) like ?', "%#{search.downcase}%")
     end
+
+    # TO DO: princeton says this way is supposed to work 
+
+    # def self.filtered_users(search)
+    #     self.where('username like ?', search)
+    # end
 end

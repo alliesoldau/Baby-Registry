@@ -25,7 +25,7 @@ function UserProfile({ user, setUser }) {
         { user ? (
             <Profile>
                 <div className="Profile-Image">
-                <img src={user.image_url}/>
+                    <img src={user.image_url}/>
                 </div>
                 <h2>{user.username}'s Profile</h2>
                 <LineItem>
