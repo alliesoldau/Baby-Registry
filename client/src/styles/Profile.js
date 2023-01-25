@@ -52,36 +52,6 @@ const COLORS = {
         margin: 5px;
         vertical-align: center;
       }
-    .Line-Item {
-        display: flex;
-        flex-direction: row;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-    .Button-Container {
-        display: flex;
-        flex-direction: row;
-    }
-    button {
-        border: none;
-        border-radius: 8px;
-        color: white;
-        padding: 5px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        width: 200px;
-        margin: 5px;
-    }
-    button.Edit-Button {
-        background-color: var(--pink);
-    }
-    button.Delete-Button {
-        background-color: var(--blue);
-    }
-    button:hover {
-        font-weight: bold;
-    }   
   `
 
 export default Profile;
