@@ -43,7 +43,7 @@ function Navigation({ user, setUser }) {
                             </Button>
                         </div>                    
                     ) : (
-                    <div className="Login-Signup-Container">
+                    <div className="Nav-Bar-All-Links">
                         <Link to="/users/new">Sign Up</Link>
                         <Link to="/login">Login</Link>
                     </div>

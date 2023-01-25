@@ -21,8 +21,8 @@ function UserHomePage({ user, setUser }) {
     return (
         <>
         { user ? (
-            <div className="User-Home-Page-Container">
-                <p>{user.username}'s Home Page</p>
+            <div className="Home-Page">
+                <h1>{user.username}'s Home Page</h1>
             </div>
             )  :  (
             // TO DO: loading screen

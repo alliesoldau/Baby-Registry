@@ -29,6 +29,7 @@ const COLORS = {
         color: var(--blue);
     }
     .Profile-Image {
+        background-color: #fff;
         border-radius: 100px;
         overflow: hidden;
         height: 200px;
