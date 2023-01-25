@@ -1,5 +1,7 @@
 import React from 'react';
 import Card from '../styles/Card';
+import LineItem from '../styles/LineItem';
+import ButtonContainer from '../styles/ButtonContainer';
 // import { Container, Row, Col } from 'react-grid';
 
  
@@ -29,12 +31,25 @@ function GiftDetails({ gift, surrenderItem }) {
         <div className="Gift-Details">
             {/* <Container container spacing={2}> */}
             <Card>
-                <p><b>Baby Shower: {gift.baby_shower.baby_shower_name}</b></p>
-                <p>Item Name: {gift.item_name}</p>
-                <p>Price: {gift.price}</p>
-                <p><a href={gift.listing_url}>Listing</a></p>
+                <LineItem>
+                    <h4>Baby Shower</h4>
+                    <p>{gift.baby_shower.baby_shower_name}</p>
+                </LineItem>
+                <LineItem>
+                    <h4>Item</h4>
+                    <p>{gift.item_name}</p>
+                </LineItem>
+                <LineItem>
+                    <h4>Price</h4>
+                    <p>${gift.price}</p>
+                </LineItem>
+                <LineItem>
+                    <h4><a href={gift.listing_url}>Listing Link</a></h4>
+                </LineItem>
                 <img src={gift.image_url}/>
-                <button onClick={handleSurrenderItem}>Surrender Item</button>
+                <ButtonContainer>
+                    <button className="Delete-Button" onClick={handleSurrenderItem}>Surrender Item</button>
+                </ButtonContainer>
             </Card>
             {/* </Container> */}
         </div>

@@ -1,3 +1,5 @@
+// passing props into styled components: https://www.smashingmagazine.com/2020/07/styled-components-react/ 
+
 import styled from "styled-components";
 
 const COLORS = {
@@ -8,7 +10,7 @@ const COLORS = {
     "--pink": "#AC7B7D",
   };
 
-const Card = styled.li`
+const TruncatedCard = styled.li`
 display:flex;
 flex-direction:column;
 justify-content:start;
@@ -29,7 +31,24 @@ img{
   padding: 0px;
 }
 position:relative;
+h4 {
+  margin: 5px;
+  color: var(--blue);
+}
+.Line-Item {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+p {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--blue);
+  margin: 5px;
+  vertical-align: center;
+}
 `
 
 
-export default Card;
+export default TruncatedCard;

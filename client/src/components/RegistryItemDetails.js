@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import Card from '../styles/Card';
+import LineItem from '../styles/LineItem';
+import ButtonContainer from '../styles/ButtonContainer';
 
 function RegistryItemDetails({ item, removeItem, setItemToEdit }) {
 
@@ -18,14 +20,30 @@ function RegistryItemDetails({ item, removeItem, setItemToEdit }) {
     return (
         <div className="Registery-Item-Details">
             <Card>
-                <p>Item Name: {item.item_name}</p>
-                <p>Price: {item.price}</p>
-                <p>Claimed?: CHECK USER ID TO SEE IF ITS CLAIMED</p>
+            <LineItem>
+                    <h4>Item</h4>
+                    <p>{item.item_name}</p>
+                </LineItem>
+                <LineItem>
+                    <h4>Price</h4>
+                    <p>${item.price}</p>
+                </LineItem>
+                <LineItem>
+                    <h4><a href={item.listing_url}>Listing Link</a></h4>
+                </LineItem>
                 <img src={item.image_url}/>
-                <Link to={`/items/${item.id}/edit/`}>
-                    <button onClick={handleSelectItem}>Edit Item</button>
-                </Link>            
-                <button onClick={handleDelete}>Remove Item From Registry</button>
+                <LineItem>
+                    {/* TO DO: check to see if its claimed  */}
+                    {/* TO DO: change color depending on if its claimed or not? */}
+                    <h4>Claimed</h4>
+                    <p>CHECK TO SEE IF ITS CLAIMED</p>
+                </LineItem>
+                <ButtonContainer>
+                    <Link to={`/items/${item.id}/edit/`}>
+                        <button className="Edit-Button" onClick={handleSelectItem}>Edit Item</button>
+                    </Link>            
+                    <button className="Delete-Button" onClick={handleDelete}>Remove Item</button>
+                </ButtonContainer>
             </Card>
         </div>
     )

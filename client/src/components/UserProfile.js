@@ -22,18 +22,40 @@ function UserProfile({ user, setUser }) {
         <>
         { user ? (
             <Profile>
-                <p>{user.username}'s Profile</p>
+                <div className="Profile-Image">
                 <img src={user.image_url}/>
+                </div>
+                <h2>{user.username}'s Profile</h2>
+                <div className="Line-Item">
+                    <h4>First name</h4>
+                    <p>{user.first_name}</p>
+                </div>
+                <div className="Line-Item">
+                    <h4>Last name</h4>
+                    <p>{user.last_name}</p>
+                </div>
+                <div className="Line-Item">
+                    <h4>Gender</h4>
+                    <p>{user.gender}</p>
+                </div>
+                <div className="Line-Item">
+                    <h4>City</h4>
+                    <p>{user.city}</p>
+                </div>
+                <div className="Line-Item">
+                    <h4>State</h4>
+                    <p>{user.state}</p>
+                </div>
+                <div className="Line-Item">
+                    <h4>Email</h4>
+                    <p>{user.email}</p>
+                </div>
+                <div className="Button-Container">
                 <Link to={`/users/${user.id}/profile/edit`}>
-                    <button>Edit Profile</button>
+                    <button className="Edit-Button">Edit Profile</button>
                 </Link>
-                <p>First name: {user.first_name}</p>
-                <p>Last name: {user.last_name}</p>
-                <p>Gender: {user.gender}</p>
-                <p>City: {user.city}</p>
-                <p>State: {user.state}</p>
-                <p>Email: {user.email}</p>
-                <button onClick={handleDelete}>Delete My Profile</button>
+                <button className="Delete-Button" onClick={handleDelete}>Delete My Profile</button>
+                </div>
             </Profile>
         ) : null } 
         </>
