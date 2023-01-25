@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Button from '../styles/Button'
 import UserDetails from './UserDetails';
 
-function SearchForFriends({ searchUsers, setSearchUsers }) {
+function SearchForFriends({ searchUsers, setSearchUsers, friendsBabyShowers, setFriendsBabyShowers }) {
 
     const [search, setSearch] = useState("");
 
     useEffect(() => {
         setSearchUsers([])
     },[])
-
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -24,6 +23,8 @@ function SearchForFriends({ searchUsers, setSearchUsers }) {
             <UserDetails
                 key={user.id}
                 user={user}
+                friendsBabyShowers={friendsBabyShowers}
+                setFriendsBabyShowers={setFriendsBabyShowers}
             />
         )
     })

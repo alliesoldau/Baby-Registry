@@ -25,6 +25,7 @@ function App() {
   const [itemToEdit, setItemToEdit] = useState({});
   const [myGifts, setMyGifts] = useState([]);
   const [searchUsers, setSearchUsers] = useState([])
+  const [friendsBabyShowers, setFriendsBabyShowers] = useState([]);
 
   function addItemToRegistry(item) {
     let updateRegistry 
@@ -73,7 +74,7 @@ function App() {
           </Route>
 
           <Route path='/users/search'>
-            <SearchForFriends searchUsers={searchUsers} setSearchUsers={setSearchUsers}/>
+            <SearchForFriends searchUsers={searchUsers} setSearchUsers={setSearchUsers} friendsBabyShowers={friendsBabyShowers} setFriendsBabyShowers={setFriendsBabyShowers}/>
           </Route>
 
           <Route path='/users/:id/profile/edit'>
@@ -109,7 +110,7 @@ function App() {
           </Route>
 
           <Route path='/baby_showers/:id'>
-            <FriendsShowers />
+            <FriendsShowers setFriendsBabyShowers={setFriendsBabyShowers} friendsBabyShowers={friendsBabyShowers}/>
           </Route>
 
           <Route path='/items/:id/edit'>

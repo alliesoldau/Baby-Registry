@@ -8,7 +8,7 @@ class BabyShowersController < ApplicationController
     end 
 
     def show
-        baby_shower = BabyShower.find(params[:id])
+        baby_shower = BabyShower.find_by(user_id: params[:id])
         render json: baby_shower, status: :ok
     end 
 
