@@ -10,13 +10,12 @@ function AddItemToRegistry({ registry, addItemToRegistry }) {
         price:'',
         image_url:'',
         listing_url:'',
-        claimed: false,
         baby_shower_id: registry.id
     })
 
     const history = useHistory()
 
-    const {item_name, price, image_url, listing_url, claimed, baby_shower_id} = formData
+    const {item_name, price, image_url, listing_url, baby_shower_id} = formData
 
     // TO DO: get rid of baby shower image 
 
@@ -27,7 +26,6 @@ function AddItemToRegistry({ registry, addItemToRegistry }) {
             price, 
             image_url, 
             listing_url, 
-            claimed, 
             baby_shower_id
         }
         // TO DO: Once item is added to baby shower the route is messed up. maybe add local host

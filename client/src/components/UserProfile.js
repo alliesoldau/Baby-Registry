@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from "react-router-dom"
+import Profile from '../styles/Profile';
 
 function UserProfile({ user, setUser }) {
 
@@ -20,24 +21,21 @@ function UserProfile({ user, setUser }) {
     return (
         <>
         { user ? (
-            <div className="User-Profile">
-            <p>{user.username}'s Profile</p>
-            <Link to={`/users/${user.id}/profile/edit`}>
-                <button>Edit Profile</button>
-            </Link>
-            <p>First name: {user.first_name}</p>
-            <p>Last name: {user.last_name}</p>
-            <p>Gender: {user.gender}</p>
-            <p>TO DO: make image: {user.image_url}</p>
-            <p>City: {user.city}</p>
-            <p>State: {user.state}</p>
-            <p>Email: {user.email}</p>
-            <button onClick={handleDelete}>Delete My Profile</button>
-        </div>
-            )  :  (
-            // TO DO: loading screen
-            <p>No user</p>
-        )}
+            <Profile>
+                <p>{user.username}'s Profile</p>
+                <img src={user.image_url}/>
+                <Link to={`/users/${user.id}/profile/edit`}>
+                    <button>Edit Profile</button>
+                </Link>
+                <p>First name: {user.first_name}</p>
+                <p>Last name: {user.last_name}</p>
+                <p>Gender: {user.gender}</p>
+                <p>City: {user.city}</p>
+                <p>State: {user.state}</p>
+                <p>Email: {user.email}</p>
+                <button onClick={handleDelete}>Delete My Profile</button>
+            </Profile>
+        ) : null } 
         </>
     )
 }

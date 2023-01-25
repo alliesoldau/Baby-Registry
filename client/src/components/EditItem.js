@@ -5,21 +5,11 @@ function EditItem({ itemToEdit, setUpdatedItem }) {
 
     const history = useHistory()
 
-    const [claimed, setClaimed] = useState("")
-
-    useEffect(() => { 
-        if (itemToEdit.claimed === true) {
-            setClaimed("claimed")
-        } else {
-            setClaimed("unclaimed")
-        }},[])
-
     const [formData, setFormData] = useState({
         item_name: itemToEdit.item_name,
         price: itemToEdit.price,
         image_url: itemToEdit.image_url,
         listing_url: itemToEdit.listing_url,
-        claimed: claimed,
         user_id: itemToEdit.user_id,
         baby_shower_id: itemToEdit.baby_shower_id
     })

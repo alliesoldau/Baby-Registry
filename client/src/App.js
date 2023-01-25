@@ -14,6 +14,8 @@ import EditProfile from './components/EditProfile'
 import AddItemToRegistry from './components/AddItemToRegistry';
 import EditItem from './components/EditItem';
 
+// styled components: https://www.smashingmagazine.com/2020/07/styled-components-react/ 
+
 function App() {
   
   const [user, setUser] = useState(null);
