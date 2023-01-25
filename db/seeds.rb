@@ -18,8 +18,8 @@ puts "Seeding baby shower data..."
 
 
 
-b1 = BabyShower.create(baby_shower_name: "Javi's 1st baby shower", date: "2023-04-12", address: "My House", image_url: "https://images.unsplash.com/photo-1630305131239-c8df91783f10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMGJhYnklMjBnaXJsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1296&q=60", description: "Come help us celebrate baby Kevin!", user_id: 1)
-b2 = BabyShower.create(baby_shower_name: "Javi's 2nd baby shower", date: "2024-01-16", address: "Freddie's fish tank", image_url: "https://www.customaquariums.com/wp-content/uploads/2019/02/100-gallon-aquarium-24_-x-48_-x-18_-colonial-oak-stain-classic-trim-standard-flat-panels-showcase-image.jpg", description: "Javi is having more babies!!", user_id: 1)
+b1 = BabyShower.create(baby_shower_name: "Javi's 1st baby shower", date: "2023-04-12", address: "My House", description: "Javi is having a baby!", user_id: 1)
+b2 = BabyShower.create(baby_shower_name: "Javi's 2nd baby shower", date: "2024-01-16", address: "Freddie's fish tank", description: "Javi is having more babies!!", user_id: 1)
 
 puts "Seeding item data..."
 

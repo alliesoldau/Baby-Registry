@@ -32,7 +32,7 @@ class BabyShowersController < ApplicationController
     private
     
     def baby_shower_params
-        params.permit(:baby_shower_name, :date, :address, :image_url, :description, :user_id)
+        params.permit(:baby_shower_name, :date, :address, :description, :user_id)
     end 
 
 end

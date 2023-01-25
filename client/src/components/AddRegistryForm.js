@@ -8,14 +8,13 @@ function AddRegistryForm() {
         baby_shower_name:'',
         date:'',
         address:'',
-        image_url:'',
         description:'',
         user_id: params.id
     })
 
     const history = useHistory()
 
-    const {baby_shower_name, date, address, image_url, description, user_id} = formData
+    const {baby_shower_name, date, address, description, user_id} = formData
 
     // TO DO: get rid of baby shower image 
 
@@ -25,7 +24,6 @@ function AddRegistryForm() {
             baby_shower_name,
             date,
             address,
-            image_url,
             description, 
             user_id
         }
@@ -65,10 +63,6 @@ function AddRegistryForm() {
                 <div className="Form-Field">
                     <label>Address</label> 
                     <input type='text' name='address' value={address} onChange={handleChange} />
-                </div>
-                <div className="Form-Field">
-                    <label>Image URL</label> 
-                    <input type='text' name='image_url' value={image_url} onChange={handleChange} />
                 </div>
                 <div className="Form-Field">
                     <label>Description</label> 

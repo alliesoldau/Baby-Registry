@@ -50,7 +50,6 @@ function ShowerDetails({ shower, setRegistry }) {
                 <h4>Description</h4>
                 <p>{shower.description}</p>
             </LineItem>
-            <img src={shower.image_url}/>
             {itemDetails}
         </SummaryCard>
     )

@@ -10,7 +10,7 @@ const COLORS = {
 
 const SummaryCard = styled.div`
 width: 400px;
-margin: 120px auto 120px;
+margin: 20px auto 20px;
 background-color: #fff;
 padding: 0 20px 20px;
 border-radius: 6px;
@@ -38,10 +38,6 @@ h4 {
     margin: auto;
     top: -60px;
     box-shadow: 0 0 0 13px var(--bone);
-}
-img {
-    width: 200px;
-    height: 200px;
 }
 p {
     font-size: 16px;

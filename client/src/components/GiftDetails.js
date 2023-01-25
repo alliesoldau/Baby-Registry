@@ -32,12 +32,12 @@ function GiftDetails({ gift, surrenderItem }) {
             {/* <Container container spacing={2}> */}
             <Card>
                 <LineItem>
-                    <h4>Baby Shower</h4>
-                    <p>{gift.baby_shower.baby_shower_name}</p>
-                </LineItem>
-                <LineItem>
                     <h4>Item</h4>
                     <p>{gift.item_name}</p>
+                </LineItem>
+                <LineItem>
+                    <h4>Baby Shower</h4>
+                    <p>{gift.baby_shower.baby_shower_name}</p>
                 </LineItem>
                 <LineItem>
                     <h4>Price</h4>

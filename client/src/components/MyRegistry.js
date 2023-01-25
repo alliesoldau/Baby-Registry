@@ -42,6 +42,7 @@ function MyRegistry({ setRegistry }) {
                 <button onClick={handleRouteToNewRegistryForm}>Create New Registry</button>
             </div>
             <div className="My-Registry-Details">
+                {/* TO DO: how can we make the items stack or something? */}
                 {babyShowerDetails}
             </div>
         </div>
