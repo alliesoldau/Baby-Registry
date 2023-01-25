@@ -1,6 +1,9 @@
 import React from 'react';
 import ItemDetails from './ItemDetails';
 import { Link } from "react-router-dom"
+import SummaryCard from '../styles/SummaryCard';
+import LineItem from '../styles/LineItem';
+import ButtonContainer from '../styles/ButtonContainer';
 
 function ShowerDetails({ shower, setRegistry }) {
 
@@ -27,18 +30,29 @@ function ShowerDetails({ shower, setRegistry }) {
     })
 
     return (
-        <div className="Shower-Details">
-            <p>Shower Name: {shower.baby_shower_name}</p>
-            <button onClick={handleDelete}>Delete This Registry</button>
-            <Link to={`/baby_showers/${shower.id}/edit`}>
-                <button onClick={handleEditRegistry}>Update This Registry</button>
-            </Link>
-            <p>Date: {shower.date}</p>
-            <p>Address: {shower.address}</p>
-            <p>Description: {shower.description}</p>
-            <p>TO DO: make an image: {shower.image_url}</p>
+        <SummaryCard>
+            <h2>{shower.baby_shower_name}</h2>
+            <ButtonContainer>
+                <Link to={`/baby_showers/${shower.id}/edit`}>
+                    <button className="Edit-Button" onClick={handleEditRegistry}>Edit Registry</button>
+                </Link>
+                <button className="Delete-Button" onClick={handleDelete}>Delete Registry</button>
+            </ButtonContainer>
+            <LineItem>
+                <h4>Date</h4>
+                <p>${shower.date}</p>
+            </LineItem>
+            <LineItem>
+                <h4>Address</h4>
+                <p>{shower.address}</p>
+            </LineItem>
+            <LineItem>
+                <h4>Description</h4>
+                <p>{shower.description}</p>
+            </LineItem>
+            <img src={shower.image_url}/>
             {itemDetails}
-        </div>
+        </SummaryCard>
     )
 }
 

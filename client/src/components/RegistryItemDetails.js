@@ -20,7 +20,7 @@ function RegistryItemDetails({ item, removeItem, setItemToEdit }) {
     return (
         <div className="Registery-Item-Details">
             <Card>
-            <LineItem>
+                <LineItem>
                     <h4>Item</h4>
                     <p>{item.item_name}</p>
                 </LineItem>
