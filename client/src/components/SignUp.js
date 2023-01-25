@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
+import Form from '../styles/Form';
+import FormInputLine from '../styles/FormInputLine';
+import ButtonContainer from '../styles/ButtonContainer';
 
 function SignUp({ setUser }) {
     
@@ -37,7 +40,7 @@ function SignUp({ setUser }) {
                     console.log("Figure out what to do with errors")
                 }
             })
-    }
+        }
 
     function handleChange (e) {
         const { name, value } = e.target
@@ -45,24 +48,26 @@ function SignUp({ setUser }) {
       }
 
     return (
-        <div className="SignUp-Container">
-            <p>SignUp</p>
+        <Form bg={"white"}>
+            <h2>SignUp</h2>
             <form onSubmit={handleSubmit}>
-                <div className="Form-Field">
+                <FormInputLine bg={"bone"}>
                     <label>Username</label> 
                     <input type='text' name='username' value={username} onChange={handleChange} />
-                </div>
-                <div className="Form-Field">
+                </FormInputLine>
+                <FormInputLine bg={"bone"}>
                     <label>Email</label> 
                     <input type='text' name='email' value={email} onChange={handleChange} />
-                </div>
-                <div className="Form-Field">
+                </FormInputLine>
+                <FormInputLine bg={"bone"}>
                     <label>Password</label> 
                     <input type='password' name='password' value={password} onChange={handleChange} />
-                </div>
-                <button type='submit' className="submit">Sign Up</button>
+                </FormInputLine>
+                <ButtonContainer>
+                    <button type='submit' className="Submit-Button">Sign Up</button>
+                </ButtonContainer>
             </form>
-        </div>
+        </Form>
     )
 }
 
