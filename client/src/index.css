@@ -69,13 +69,6 @@ code {
   width: 100%;
 }
 
-/* .Nav-Link-Container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-} */
-
 .Navigation-Container a {
   color: var(--bone);
   text-decoration: none;

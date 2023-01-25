@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, NavLink} from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
-
+import Button from '../styles/Button';
 
 function Navigation({ user, setUser }) {
 
@@ -38,7 +38,9 @@ function Navigation({ user, setUser }) {
                                     Things I'm Gifting
                                 </NavLink>
                             {/* </div> */}
-                            <button onClick={handleLogoutClick}>Logout</button>
+                            <Button>
+                                <button className="Logout-Button" onClick={handleLogoutClick}>Logout</button>
+                            </Button>
                         </div>                    
                     ) : (
                     <div className="Login-Signup-Container">

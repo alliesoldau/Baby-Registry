@@ -21,6 +21,9 @@ button.Edit-Button {
 button.Delete-Button {
     background-color: var(--blue);
 }
+button:hover {
+    font-weight: bold;
+}  
 `
 
 

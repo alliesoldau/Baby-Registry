@@ -16,10 +16,7 @@ margin: 10px;
 background-color: #fff;
 width: 350px;
 border-radius: 6px;
--webkit-border-radius: 6px;
--moz-border-radius: 6px;
-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
--webkit-box-shadow: 0 2px 5px;
+box-shadow: 0 2px 5px var(--purple);
 a{
   text-decoration: none;
   color: var(--pink);

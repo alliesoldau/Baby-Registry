@@ -16,10 +16,7 @@ const COLORS = {
     background-color: #fff;
     padding: 0 20px 20px;
     border-radius: 6px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.075);
-    -webkit-box-shadow: 0 2px 5px;
+    box-shadow: 0 2px 5px var(--purple);
     h2 {
         font-size: 32px;
         font-weight: 600;

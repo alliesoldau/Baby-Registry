@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import ShowerDetails from './ShowerDetails'
 import { useHistory, useParams } from 'react-router-dom'
+import Button from '../styles/Button';
 
 function MyRegistry({ setRegistry }) {
 
@@ -38,9 +39,9 @@ function MyRegistry({ setRegistry }) {
 
     return (
         <div className="My-Registry">
-            <div className="Create-Babyshower-Button">
-                <button onClick={handleRouteToNewRegistryForm}>Create New Registry</button>
-            </div>
+            <Button>
+                <button className="Create-Babyshower-Button" onClick={handleRouteToNewRegistryForm}>Create New Registry</button>
+            </Button>
             <div className="My-Registry-Details">
                 {/* TO DO: how can we make the items stack or something? */}
                 {babyShowerDetails}

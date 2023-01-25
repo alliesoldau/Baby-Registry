@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
+import Form from '../styles/Form';
+import FormInputLine from '../styles/FormInputLine';
+import Button from '../styles/Button';
 
 function EditProfile({ user, setUser }) {
 
@@ -44,36 +47,39 @@ function EditProfile({ user, setUser }) {
 }
 
     return (
-        <div className="Edit-Profile-Container">
-        <p>Edit Profile</p>
+        <Form>
+        <h2>Edit Profile</h2>
         <form className="Edit-Profile-Form" onSubmit={handleSubmit}>
-            <div className="Form-Field">
+            <FormInputLine>
                 <label>First Name</label>
                 <input type='text' name='first_name' value={first_name} onChange={handleChange} />
-            </div>
-            <div className="Form-Field">
+            </FormInputLine>
+            <FormInputLine>
                 <label>Last Name</label>
                 <input type='text' name='last_name' value={last_name} onChange={handleChange} />
-            </div>
-            <div className="Form-Field">
+            </FormInputLine>
+            <FormInputLine>
                 <label>Gender</label>
                 <input type='text' name='gender' value={gender} onChange={handleChange} />
-            </div>
-            <div className="Form-Field">
+            </FormInputLine>
+            <FormInputLine>
                 <label>City</label>
                 <input type='text' name='city' value={city} onChange={handleChange} />
-            </div>
-            <div className="Form-Field">
+            </FormInputLine>
+            <FormInputLine>
                 <label>State</label>
                 <input type='text' name='state' value={state} onChange={handleChange} />
-            </div>
-            <div className="Form-Field">
+            </FormInputLine>
+            <FormInputLine>
                 <label>Email</label>
                 <input type='text' name='email' value={email} onChange={handleChange} />
-            </div>
-        <button type='submit' className="submit">Submit Edits</button>
+            </FormInputLine>
+            <Button>
+                <button type='submit' className="Submit-Button">Submit Edits</button>
+            </Button>
+
         </form>
-    </div>
+    </Form>
     )
 }
 
