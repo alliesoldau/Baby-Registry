@@ -4,19 +4,24 @@ import Button from '../styles/Button'
 function SearchForFriends({ allUsers }) {
 
     const [search, setSearch] = useState("");
+    const [searchedUsers, setSearachedUsers] = useState({allUsers});
+
+    // TO DO: should I have it filter out the current user from the results?
 
     function handleSubmit(e) {
         e.preventDefault();
         console.log(`search: ${search}`)
         fetch(`/users/search/${search}`)
         .then(resp => resp.json())
-        .then((searchData) => console.log(searchData))
+        .then((searchData) => setSearachedUsers(searchData))
     }
+
+    console.log(searchedUsers)
 
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <label>Search for friends</label>
+                <label>Search by Username</label>
                 <input 
                     id="search"
                     type="text"

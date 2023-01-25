@@ -8,6 +8,6 @@ class User < ApplicationRecord
     has_many :baby_showers, through: :items
 
     def self.filtered_users(search)
-        self.where('username like ?', "%" + search + "%")
+        self.where('lower(username) like ?', "%#{search.downcase}%")
     end
 end
