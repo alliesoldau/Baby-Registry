@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import TruncatedCard from '../styles/TruncatedCard';
 import LineItem from '../styles/LineItem';
 
 function ItemDetails({ item }) {
 
+    const [claimed, setClaimed] = useState("")
+
+    useEffect(() => {
+        if (item.user_id) {
+            setClaimed("Yes")
+        } else {
+            setClaimed("No")
+        }
+    },[])
+
     return (
         <div className="Item-Details">
-            <TruncatedCard>
+            <TruncatedCard claimed={claimed}>
                 <LineItem>
                     <h4>Item</h4>
                     <p>{item.item_name}</p>
@@ -14,7 +24,7 @@ function ItemDetails({ item }) {
                 <LineItem>
                     <h4>Claimed?</h4>
                     {/* TO DO: check to see if its claimed  */}
-                    <p>CHECK USER ID TO SEE IF ITS CLAIMED</p>
+                    <p>{claimed}</p>
                 </LineItem>
             </TruncatedCard>
         </div>
