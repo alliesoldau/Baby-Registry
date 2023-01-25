@@ -48,7 +48,9 @@ function SearchForFriends({ searchUsers, setSearchUsers }) {
                     <button type="Submit-Button">Search</button>
                 </Button>
             </form>
-            {userDetails}
+            <div className="User-Tiles">
+                {userDetails}
+            </div>
         </>
     )
 }

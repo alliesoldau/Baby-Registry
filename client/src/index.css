@@ -80,11 +80,15 @@ code {
   text-decoration: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .Navigation-Container a:hover {
   text-decoration: underline;
 }
 
-.My-Registry-Details, .My-Gifts, .Item-Details-Container {
+.My-Registry-Details, .My-Gifts, .Item-Details-Container, .User-Tiles {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

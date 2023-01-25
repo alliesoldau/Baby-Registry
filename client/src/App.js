@@ -14,6 +14,7 @@ import EditProfile from './components/EditProfile'
 import AddItemToRegistry from './components/AddItemToRegistry';
 import EditItem from './components/EditItem';
 import SearchForFriends from './components/SearchForFriends';
+import FriendsShowers from './components/FriendsShowers';
 
 // styled components: https://www.smashingmagazine.com/2020/07/styled-components-react/ 
 
@@ -105,6 +106,10 @@ function App() {
 
           <Route path='/baby_showers/:id/edit'>
             <EditRegistry registry={registry} removeItem={removeItem} setItemToEdit={setItemToEdit}/>
+          </Route>
+
+          <Route path='/baby_showers/:id'>
+            <FriendsShowers />
           </Route>
 
           <Route path='/items/:id/edit'>
