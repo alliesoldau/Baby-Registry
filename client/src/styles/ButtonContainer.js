@@ -21,6 +21,12 @@ button.Edit-Button {
 button.Delete-Button {
     background-color: var(--blue);
 }
+button.Submit-Button {
+    background-color: var(--green);
+}
+button.Submit-Button-Purple {
+    background-color: var(--purple);
+}
 button:hover {
     font-weight: bold;
 }  

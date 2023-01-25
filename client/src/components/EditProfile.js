@@ -47,7 +47,7 @@ function EditProfile({ user, setUser }) {
 }
 
     return (
-        <Form>
+        <Form bg={"pink"}>
         <h2>Edit Profile</h2>
         <form className="Edit-Profile-Form" onSubmit={handleSubmit}>
             <FormInputLine>

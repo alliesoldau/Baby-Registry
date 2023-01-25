@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
     end 
 
     def create
-        byebug
         item = Item.create!(item_params)
         render json: item, status: :created
     end 

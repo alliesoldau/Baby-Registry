@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom'
 import RegistryItemDetails from './RegistryItemDetails';
+import Form from '../styles/Form';
+import FormInputLine from '../styles/FormInputLine';
+import ButtonContainer from '../styles/ButtonContainer';
 
 // TO DO: make it so you can add and remove items from your registry 
 
@@ -56,34 +59,38 @@ function EditRegistry({ registry, removeItem, setItemToEdit }) {
     // TO DO: Make the date preview with the correct date 
 
     return (
-        <div className="Edit-Registry-Container">
-        <p>Edit Registry</p>
-        <form className="Edit-Registry-Form" onSubmit={handleSubmit}>
-            <div className="Form-Field">
-                <label>Baby Shower Name</label>
-                <input type='text' name='baby_shower_name' value={baby_shower_name} onChange={handleChange} />
+        <>
+            <Form bg={"purple"}>
+            <h2>Edit Registry</h2>
+            <form className="Edit-Registry-Form" onSubmit={handleSubmit}>
+                <FormInputLine>
+                    <label>Baby Shower Name</label>
+                    <input type='text' name='baby_shower_name' value={baby_shower_name} onChange={handleChange} />
+                </FormInputLine>
+                <FormInputLine>
+                    <label>Date</label>
+                    <input type='date' name='date' value={date} onChange={handleChange} />
+                </FormInputLine>
+                <FormInputLine>
+                    <label>Address</label>
+                    <input type='text' name='address' value={address} onChange={handleChange} />
+                </FormInputLine>
+                <FormInputLine>
+                    <label>Description</label>
+                    <input type='text' name='description' value={description} onChange={handleChange} />
+                </FormInputLine>
+                <ButtonContainer>
+                    <Link to={`/baby_showers/${registry.id}/add_items`}>
+                        <button className="Edit-Button">Add Items to This Registry</button>
+                    </Link>
+                    <button type='submit' className="Submit-Button">Submit Edits</button>
+                </ButtonContainer>
+            </form>
+            </Form>
+            <div className="Item-Details-Container">
+                {itemDetails}
             </div>
-            <div className="Form-Field">
-                <label>Date</label>
-                <input type='date' name='date' value={date} onChange={handleChange} />
-            </div>
-            <div className="Form-Field">
-                <label>Address</label>
-                <input type='text' name='address' value={address} onChange={handleChange} />
-            </div>
-            <div className="Form-Field">
-                <label>Description</label>
-                <input type='text' name='description' value={description} onChange={handleChange} />
-            </div>
-        <button type='submit' className="submit">Submit Edits</button>
-        </form>
-        <Link to={`/baby_showers/${registry.id}/add_items`}>
-            <button>Add Items to This Registry</button>
-        </Link>
-        <div className="Item-Details-Container">
-            {itemDetails}
-        </div>
-    </div>
+        </>
     )
 }
 

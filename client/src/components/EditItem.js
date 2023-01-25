@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import Form from '../styles/Form';
+import FormInputLine from '../styles/FormInputLine';
+import ButtonContainer from '../styles/ButtonContainer';
 
 function EditItem({ itemToEdit, setUpdatedItem }) {
 
@@ -41,28 +44,30 @@ function EditItem({ itemToEdit, setUpdatedItem }) {
 }
 
     return (
-        <div className="Edit-Item-Container">
-        <p>Edit Item</p>
+        <Form bg={"green"}>
+        <h2 className="purple">Edit Item</h2>
         <form className="Edit-Registry-Form" onSubmit={handleSubmit}>
-            <div className="Form-Field">
+            <FormInputLine>
                 <label>Item Name</label>
                 <input type='text' name='item_name' value={item_name} onChange={handleChange} />
-            </div>
-            <div className="Form-Field">
+            </FormInputLine>
+            <FormInputLine>
                 <label>Price</label>
                 <input type='text' name='price' value={price} onChange={handleChange} />
-            </div>
-            <div className="Form-Field">
+            </FormInputLine>
+            <FormInputLine>
                 <label>Listing URL</label>
                 <input type='text' name='listing_url' value={listing_url} onChange={handleChange} />
-            </div>
-            <div className="Form-Field">
+            </FormInputLine>
+            <FormInputLine>
                 <label>Image URL</label>
                 <input type='text' name='image_url' value={image_url} onChange={handleChange} />
-            </div>
-        <button type='submit' className="submit">Submit Item Edits</button>
+            </FormInputLine>
+            <ButtonContainer>
+                <button type='submit' className="Submit-Button-Purple">Submit Item Edits</button>
+            </ButtonContainer>
         </form>
-        </div>
+        </Form>
     )
 }
 
