@@ -24,12 +24,13 @@ code {
 .App-container {
  display: flex;
  flex-direction: column;
+ background-color: var(--bone);
+ height: 100vh;
 }
 
 .Body-Container {
   display: flex;
   flex-direction: column;
-  background-color: var(--bone);
   color: var(--purple)
 }
 
@@ -84,7 +85,7 @@ code {
   font-weight: bold;
 }
 
-.My-Registry-Details, .My-Gifts {
+.My-Registry-Details, .My-Gifts, .Item-Details-Container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

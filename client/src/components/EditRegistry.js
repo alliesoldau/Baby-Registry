@@ -28,7 +28,7 @@ function EditRegistry({ registry, removeItem, setItemToEdit }) {
         user_id: registry.user_id
     })
 
-    const {baby_shower_name, date, address, image_url, description, user_id} = formData
+    const {baby_shower_name, date, address, description, user_id} = formData
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -72,10 +72,6 @@ function EditRegistry({ registry, removeItem, setItemToEdit }) {
                 <input type='text' name='address' value={address} onChange={handleChange} />
             </div>
             <div className="Form-Field">
-                <label>Image URL</label>
-                <input type='text' name='image_url' value={image_url} onChange={handleChange} />
-            </div>
-            <div className="Form-Field">
                 <label>Description</label>
                 <input type='text' name='description' value={description} onChange={handleChange} />
             </div>
@@ -84,7 +80,9 @@ function EditRegistry({ registry, removeItem, setItemToEdit }) {
         <Link to={`/baby_showers/${registry.id}/add_items`}>
             <button>Add Items to This Registry</button>
         </Link>
-        {itemDetails}
+        <div className="Item-Details-Container">
+            {itemDetails}
+        </div>
     </div>
     )
 }

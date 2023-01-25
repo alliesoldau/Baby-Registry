@@ -6,7 +6,7 @@ function MyGifts({ myGifts, setMyGifts, surrenderItem }) {
 
     const params = useParams()
 
-    useEffect(()=>{
+    useEffect(()=> {
         fetch(`/users/${params.id}/gifts`)
         .then(res => {
             if(res.ok){
