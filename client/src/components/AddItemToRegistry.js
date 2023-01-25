@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
+import Form from '../styles/Form';
+import FormInputLine from '../styles/FormInputLine';
+import ButtonContainer from '../styles/ButtonContainer';
 
 function AddItemToRegistry({ registry, addItemToRegistry }) {
 
@@ -51,28 +54,30 @@ function AddItemToRegistry({ registry, addItemToRegistry }) {
         setFormData({ ...formData, [name]: value })
       }
     return (
-            <div className="Add-Item-to-Registry-Container">
-                <p>Add Item to Registry</p>
+            <Form bg={"purple"}>
+                <h2>Add Item to Registry</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="Form-Field">
+                    <FormInputLine>
                         <label>Item Name</label> 
                         <input type='text' name='item_name' value={item_name} onChange={handleChange} />
-                    </div>
-                    <div className="Form-Field">
+                    </FormInputLine>
+                    <FormInputLine>
                         <label>Price</label> 
                         <input type='text' name='price' value={price} onChange={handleChange} />
-                    </div>
-                    <div className="Form-Field">
+                    </FormInputLine>
+                    <FormInputLine>
                         <label>Image URL</label> 
                         <input type='text' name='image_url' value={image_url} onChange={handleChange} />
-                    </div>
-                    <div className="Form-Field">
+                    </FormInputLine>
+                    <FormInputLine>
                         <label>Listing URL</label> 
                         <input type='text' name='listing_url' value={listing_url} onChange={handleChange} />
-                    </div>
-                    <button type='submit' className="submit">Create Item</button>
+                    </FormInputLine>
+                    <ButtonContainer>
+                        <button type='submit' className="Submit-Button">Create Item</button>
+                    </ButtonContainer>
                 </form>
-            </div>
+            </Form>
         )
 }
 

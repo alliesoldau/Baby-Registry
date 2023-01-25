@@ -32,6 +32,9 @@ const COLORS = {
     h2.purple {
         color: var(--bone);
     }
+    h2.blue {
+        color: var(--purple);
+    }
     h4 {
         margin: 5px;
         color: var(--blue);

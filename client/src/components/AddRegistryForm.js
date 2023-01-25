@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import {useHistory, useParams} from 'react-router-dom'
+import Form from '../styles/Form';
+import FormInputLine from '../styles/FormInputLine';
+import ButtonContainer from '../styles/ButtonContainer';
 
 function AddRegistryForm() {
     
@@ -49,28 +52,30 @@ function AddRegistryForm() {
       }
 
     return (
-        <div className="Add-Registry-Form-Container">
-            <p>Add Registry</p>
+        <Form bg={"blue"}>
+            <h2 className="blue">Add Registry</h2>
             <form onSubmit={handleSubmit}>
-                <div className="Form-Field">
+                <FormInputLine>
                     <label>Baby Shower Name</label> 
                     <input type='text' name='baby_shower_name' value={baby_shower_name} onChange={handleChange} />
-                </div>
-                <div className="Form-Field">
+                </FormInputLine>
+                <FormInputLine>
                     <label>Date</label> 
                     <input type='date' name='date' value={date} onChange={handleChange} />
-                </div>
-                <div className="Form-Field">
+                </FormInputLine>
+                <FormInputLine>
                     <label>Address</label> 
                     <input type='text' name='address' value={address} onChange={handleChange} />
-                </div>
-                <div className="Form-Field">
+                </FormInputLine>
+                <FormInputLine>
                     <label>Description</label> 
                     <input type='text' name='description' value={description} onChange={handleChange} />
-                </div>
-                <button type='submit' className="submit">Create Registry</button>
+                </FormInputLine>
+                <ButtonContainer>
+                    <button type='Submit' className="Submit-Button">Create Registry</button>
+                </ButtonContainer>
             </form>
-        </div>
+        </Form>
     )
 }
 
