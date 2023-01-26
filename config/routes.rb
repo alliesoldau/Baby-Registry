@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   patch 'users/:id/profile/edit', to: 'users#edit_profile'
   patch '/baby_showers/:id/edit', to: 'baby_showers#update'
   patch '/items/:id/edit', to: 'items#update'
+  patch '/items/:id/claim', to: 'items#claim'
   patch '/items/:id/surrender', to: 'items#surrender_item'
   delete '/delete_account/:id', to: 'users#delete_account'
   delete '/logout', to: 'sessions#destroy'

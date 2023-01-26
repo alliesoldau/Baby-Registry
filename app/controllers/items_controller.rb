@@ -20,6 +20,12 @@ class ItemsController < ApplicationController
         render json: item, status: :accepted
     end 
 
+    def claim
+        item = Item.find(params[:id])
+        item.update!(item_params)
+        render json: item, status: :accepted
+    end 
+
     def surrender_item 
         item = Item.find(params[:id])
         item.update!(item_params)
