@@ -26,13 +26,6 @@ const COLORS = {
     button:hover {
         text-decoration: underline;
     }
-    button.Logout-Button {
-        background-color: var(--pink);
-        color: #fff;
-        font-size: 1em;
-        margin: 0px;
-        font-weight: bold;
-    }
     button.Submit-Button{
         background-color: var(--blue);
         color: #fff;

@@ -75,6 +75,11 @@ code {
   width: 100%;
 }
 
+.NavLink-Button {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .Navigation-Container a {
   color: var(--bone);
   text-decoration: none;
@@ -99,6 +104,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: 20px;
 }
 
 .Home-Page {

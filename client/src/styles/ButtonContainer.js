@@ -32,6 +32,9 @@ button.Submit-Button-Purple {
 button.Search-Button{
     background-color: var(--green);  
 }
+button.Logout-Button {
+    background-color: var(--pink);
+}
 button:hover {
     text-decoration: underline;
 }  

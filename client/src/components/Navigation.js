@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, NavLink} from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
-import Button from '../styles/Button';
+import ButtonContainer from '../styles/ButtonContainer';
 
 function Navigation({ user, setUser }) {
 
@@ -27,12 +27,11 @@ function Navigation({ user, setUser }) {
                 <div className="Nav-Bar-All-Links-Container">
                     {user ? (
                         <div className="Nav-Bar-All-Links">
-                            {/* <div className="Nav-Link-Container"> */}
                                 <NavLink className="NavLink-Button" to={`/users/${user.id}/profile`}>
-                                    User Profile
+                                    Profile
                                 </NavLink>
                                 <NavLink className="NavLink-Button" to={`/users/${user.id}/baby_showers`}>
-                                    My Babyshower Registry
+                                    My Showers
                                 </NavLink>
                                 <NavLink className="NavLink-Button" to={`/users/${user.id}/gifts`}>
                                     Things I'm Gifting
@@ -40,10 +39,9 @@ function Navigation({ user, setUser }) {
                                 <NavLink className="NavLink-Button" to={`/users/search`}>
                                     Search for Friends
                                 </NavLink>
-                            {/* </div> */}
-                            <Button>
+                            <ButtonContainer>
                                 <button className="Logout-Button" onClick={handleLogoutClick}>Logout</button>
-                            </Button>
+                            </ButtonContainer>
                         </div>                    
                     ) : (
                     <div className="Nav-Bar-All-Links">
