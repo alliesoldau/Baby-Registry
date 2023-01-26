@@ -4,8 +4,7 @@ import RegistryItemDetails from './RegistryItemDetails';
 import Form from '../styles/Form';
 import FormInputLine from '../styles/FormInputLine';
 import ButtonContainer from '../styles/ButtonContainer';
-
-// TO DO: make it so you can add and remove items from your registry 
+import Errors from '../styles/Errors';
 
 function EditRegistry({ registry, removeItem, setItemToEdit }) {
 
@@ -31,6 +30,8 @@ function EditRegistry({ registry, removeItem, setItemToEdit }) {
         user_id: registry.user_id
     })
 
+    const [errors, setErrors] = useState([])
+
     const {baby_shower_name, date, address, description, user_id} = formData
 
     const handleChange = (e) => {
@@ -51,7 +52,7 @@ function EditRegistry({ registry, removeItem, setItemToEdit }) {
                 history.push(`/users/${registry.user_id}/baby_showers`)
             })
         } else {
-            console.log("Figure out what to do with errors")       
+            res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
         }
     })
 }
@@ -87,6 +88,12 @@ function EditRegistry({ registry, removeItem, setItemToEdit }) {
                 </ButtonContainer>
             </form>
             </Form>
+            { errors.length > 0 ? (
+            <Errors>
+                <h4>Errors</h4>
+                {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+            </Errors>
+            ) : null }
             <div className="Item-Details-Container">
                 {itemDetails}
             </div>

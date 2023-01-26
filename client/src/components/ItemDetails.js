@@ -23,7 +23,6 @@ function ItemDetails({ item }) {
                 </LineItem>
                 <LineItem>
                     <h4>Claimed?</h4>
-                    {/* TO DO: check to see if its claimed  */}
                     <p>{claimed}</p>
                 </LineItem>
             </TruncatedCard>

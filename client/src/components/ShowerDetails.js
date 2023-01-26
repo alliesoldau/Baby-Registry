@@ -11,7 +11,6 @@ function ShowerDetails({ shower, setRegistry }) {
         fetch(`/baby_showers/${shower.id}`, {
             method: 'DELETE'
         })
-        // TO DO: do a filter on the array to have the front end remove it from state 
     }
 
     function handleEditRegistry() {

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import ShowerDetails from './ShowerDetails'
 import { useHistory, useParams } from 'react-router-dom'
 import Button from '../styles/Button';
+import Errors from '../styles/Errors';
 
 function MyRegistry({ setRegistry }) {
 
@@ -10,6 +11,8 @@ function MyRegistry({ setRegistry }) {
 
     const [babyShowers, setBabyShowers] = useState([])
 
+    const [errors, setErrors] = useState([])
+
     useEffect(()=>{
         fetch(`/users/${params.id}/baby_showers`)
         .then(res => {
@@ -17,8 +20,8 @@ function MyRegistry({ setRegistry }) {
                 res.json().then(showers => {
                     setBabyShowers(showers)    
                 })
-            }else {
-                console.log("Figure out what to do with errors")
+            } else {
+                res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
             }
         }) 
     },[])           
@@ -46,6 +49,12 @@ function MyRegistry({ setRegistry }) {
                 {/* TO DO: how can we make the items stack or something? */}
                 {babyShowerDetails}
             </div>
+            { errors.length > 0 ? (
+                <Errors>
+                    <h4>Errors</h4>
+                    {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+                </Errors>
+            ) : null }
         </div>
     )
 }

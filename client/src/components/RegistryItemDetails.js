@@ -43,8 +43,6 @@ function RegistryItemDetails({ item, removeItem, setItemToEdit }) {
                 </LineItem>
                 <img src={item.image_url}/>
                 <LineItem>
-                    {/* TO DO: check to see if its claimed  */}
-                    {/* TO DO: change color depending on if its claimed or not? */}
                     <h4>Claimed?</h4>
                     <p>{claimed}</p>
                 </LineItem>

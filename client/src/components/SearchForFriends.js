@@ -30,9 +30,6 @@ function SearchForFriends({ searchUsers, setSearchUsers, friendsBabyShowers, set
         )
     })
 
-    console.log(`search term: ${search}`)
-    // console.log(searchedUsers)
-
     return (
         <>
             <form onSubmit={handleSubmit}>

@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom'
+import Errors from '../styles/Errors';
 
 function UserHomePage({ user, setUser }) {
 
     const params = useParams()
+
+    const [errors, setErrors] = useState([])
 
     useEffect(()=>{
         fetch(`/users/${params.id}`)
@@ -13,7 +16,7 @@ function UserHomePage({ user, setUser }) {
                     setUser(user)   
                 })
             } else {
-                console.log("Figure out what to do with errors")
+                res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
             }
         })
     },[])
@@ -28,6 +31,12 @@ function UserHomePage({ user, setUser }) {
             // TO DO: loading screen
             <p>No user</p>
         )}
+        { errors.length > 0 ? (
+            <Errors>
+                <h4>Errors</h4>
+                {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+            </Errors>
+        ) : null }
         </>
     )
 }

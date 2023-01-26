@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '../styles/Card';
 import LineItem from '../styles/LineItem';
 import ButtonContainer from '../styles/ButtonContainer';
-// import { Container, Row, Col } from 'react-grid';
+import Errors from '../styles/Errors';
 
- 
 function GiftDetails({ gift, surrenderItem }) {
+
+    const [errors, setErrors] = useState([])
 
     function handleSurrenderItem(e) {
         e.preventDefault();
@@ -22,14 +23,13 @@ function GiftDetails({ gift, surrenderItem }) {
                     surrenderItem(item)
                 })
             } else {
-                console.log("Figure out what to do with errors")       
+                res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
             }
         })
     }
 
     return (
         <div className="Gift-Details">
-            {/* <Container container spacing={2}> */}
             <Card>
                 <LineItem>
                     <h4>Item</h4>
@@ -51,7 +51,12 @@ function GiftDetails({ gift, surrenderItem }) {
                     <button className="Delete-Button" onClick={handleSurrenderItem}>Surrender Item</button>
                 </ButtonContainer>
             </Card>
-            {/* </Container> */}
+            { errors.length > 0 ? (
+                <Errors>
+                    <h4>Errors</h4>
+                    {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+                </Errors>
+            ) : null }
         </div>
     )
 }

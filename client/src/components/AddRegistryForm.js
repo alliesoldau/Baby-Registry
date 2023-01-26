@@ -3,6 +3,7 @@ import {useHistory, useParams} from 'react-router-dom'
 import Form from '../styles/Form';
 import FormInputLine from '../styles/FormInputLine';
 import ButtonContainer from '../styles/ButtonContainer';
+import Errors from '../styles/Errors';
 
 function AddRegistryForm() {
     
@@ -17,9 +18,10 @@ function AddRegistryForm() {
 
     const history = useHistory()
 
-    const {baby_shower_name, date, address, description, user_id} = formData
+    const [errors, setErrors] = useState([])
 
-    // TO DO: get rid of baby shower image 
+
+    const {baby_shower_name, date, address, description, user_id} = formData
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -41,7 +43,7 @@ function AddRegistryForm() {
                         history.push(`/users/${params.id}/baby_showers`)
                     })
                 } else {
-                    console.log("Figure out what to do with errors")
+                    res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
                 }
             })
     }
@@ -52,6 +54,7 @@ function AddRegistryForm() {
       }
 
     return (
+        <>
         <Form bg={"blue"}>
             <h2 className="blue">Add Registry</h2>
             <form onSubmit={handleSubmit}>
@@ -76,6 +79,13 @@ function AddRegistryForm() {
                 </ButtonContainer>
             </form>
         </Form>
+        { errors.length > 0 ? (
+        <Errors>
+            <h4>Errors</h4>
+            {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+        </Errors>
+        ) : null }
+        </>
     )
 }
 

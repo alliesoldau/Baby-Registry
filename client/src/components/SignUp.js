@@ -3,6 +3,9 @@ import {useHistory} from 'react-router-dom'
 import Form from '../styles/Form';
 import FormInputLine from '../styles/FormInputLine';
 import ButtonContainer from '../styles/ButtonContainer';
+import Errors from '../styles/Errors';
+
+// TO DO: what is this comp mad about??? 
 
 function SignUp({ setUser }) {
     
@@ -13,6 +16,8 @@ function SignUp({ setUser }) {
     })
 
     const history = useHistory()
+
+    const [errors, setErrors] = useState([])
 
     const {username, email, password} = formData
 
@@ -37,9 +42,9 @@ function SignUp({ setUser }) {
                         setUser(formData)
                     })
                 } else {
-                    console.log("Figure out what to do with errors")
+                    res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
                 }
-            })
+            })   
         }
 
     function handleChange (e) {
@@ -48,26 +53,34 @@ function SignUp({ setUser }) {
       }
 
     return (
-        <Form bg={"white"}>
-            <h2>SignUp</h2>
-            <form onSubmit={handleSubmit}>
-                <FormInputLine bg={"bone"}>
-                    <label>Username</label> 
-                    <input type='text' name='username' value={username} onChange={handleChange} />
-                </FormInputLine>
-                <FormInputLine bg={"bone"}>
-                    <label>Email</label> 
-                    <input type='text' name='email' value={email} onChange={handleChange} />
-                </FormInputLine>
-                <FormInputLine bg={"bone"}>
-                    <label>Password</label> 
-                    <input type='password' name='password' value={password} onChange={handleChange} />
-                </FormInputLine>
-                <ButtonContainer>
-                    <button type='submit' className="Submit-Button">Sign Up</button>
-                </ButtonContainer>
-            </form>
-        </Form>
+        <>
+            <Form bg={"white"}>
+                <h2>SignUp</h2>
+                <form onSubmit={handleSubmit}>
+                    <FormInputLine bg={"bone"}>
+                        <label>Username</label> 
+                        <input type='text' name='username' value={username} onChange={handleChange} />
+                    </FormInputLine>
+                    <FormInputLine bg={"bone"}>
+                        <label>Email</label> 
+                        <input type='text' name='email' value={email} onChange={handleChange} />
+                    </FormInputLine>
+                    <FormInputLine bg={"bone"}>
+                        <label>Password</label> 
+                        <input type='password' name='password' value={password} onChange={handleChange} />
+                    </FormInputLine>
+                    <ButtonContainer>
+                        <button type='submit' className="Submit-Button">Sign Up</button>
+                    </ButtonContainer>
+                </form>
+            </Form>
+            { errors.length > 0 ? (
+                <Errors>
+                    <h4>Errors</h4>
+                    {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+                </Errors>
+            ) : null }
+        </>
     )
 }
 

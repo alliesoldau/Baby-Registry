@@ -3,6 +3,9 @@ import {useHistory} from 'react-router-dom'
 import Form from '../styles/Form';
 import FormInputLine from '../styles/FormInputLine';
 import ButtonContainer from '../styles/ButtonContainer';
+import Errors from '../styles/Errors';
+
+// TO DO: login errors come out one letter per line?? 
 
 function Login({ setUser }) {
 
@@ -11,6 +14,8 @@ function Login({ setUser }) {
         password:''
     })
     const history = useHistory()
+
+    const [errors, setErrors] = useState([])
 
     const {username, password} = formData
 
@@ -33,7 +38,7 @@ function Login({ setUser }) {
                       setUser(user)
                   })
               } else {
-                  console.log("Figure out what to do with errors")
+                res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
               }
           })
     }
@@ -44,6 +49,7 @@ function Login({ setUser }) {
       }
 
     return(
+        <>
         <Form bg={"white"}>
             <h2>Login</h2>
             <form className="Login-Form" onSubmit={handleSubmit}>
@@ -60,6 +66,13 @@ function Login({ setUser }) {
                 </ButtonContainer>
             </form>
         </Form>
+        { errors.length > 0 ? (
+            <Errors>
+                <h4>Errors</h4>
+                {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+            </Errors>
+        ) : null }
+        </>
     )
 }
 

@@ -45,7 +45,6 @@ function AddItemToRegistry({ registry, addItemToRegistry }) {
                         addItemToRegistry(item)
                     })
                 } else {
-                    // console.log("Figure out what to do with errors")
                     res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
                 }
             })
@@ -81,10 +80,12 @@ function AddItemToRegistry({ registry, addItemToRegistry }) {
                     </ButtonContainer>
                 </form>
             </Form>
-            <Errors>
-                <h4>Errors</h4>
-                {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
-            </Errors>
+            { errors.length > 0 ? (
+                <Errors>
+                    <h4>Errors</h4>
+                    {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+                </Errors>
+            ) : null }
         </>
     )
 }

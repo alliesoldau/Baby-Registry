@@ -1,10 +1,13 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import GiftDetails from './GiftDetails'
 import {useParams} from 'react-router-dom'
+import Errors from '../styles/Errors';
 
 function MyGifts({ myGifts, setMyGifts, surrenderItem }) {
 
     const params = useParams()
+
+    const [errors, setErrors] = useState([])
 
     useEffect(()=> {
         fetch(`/users/${params.id}/gifts`)
@@ -14,7 +17,7 @@ function MyGifts({ myGifts, setMyGifts, surrenderItem }) {
                     setMyGifts(gifts)    
                 })
             } else {
-                console.log("Figure out what to do with errors")
+                res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
             }
         }) 
     },[]) 
@@ -32,6 +35,12 @@ function MyGifts({ myGifts, setMyGifts, surrenderItem }) {
     return (
         <div className="My-Gifts">
             {giftDetails}
+            { errors.length > 0 ? (
+                <Errors>
+                    <h4>Errors</h4>
+                    {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+                </Errors>
+            ) : null }
         </div>
     )
 }

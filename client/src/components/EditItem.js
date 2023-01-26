@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Form from '../styles/Form';
 import FormInputLine from '../styles/FormInputLine';
 import ButtonContainer from '../styles/ButtonContainer';
+import Errors from '../styles/Errors';
 
 function EditItem({ itemToEdit, setUpdatedItem }) {
 
@@ -16,6 +17,8 @@ function EditItem({ itemToEdit, setUpdatedItem }) {
         user_id: itemToEdit.user_id,
         baby_shower_id: itemToEdit.baby_shower_id
     })
+
+    const [errors, setErrors] = useState([])
 
     const {item_name, price, image_url, listing_url} = formData
 
@@ -38,36 +41,44 @@ function EditItem({ itemToEdit, setUpdatedItem }) {
                 setUpdatedItem(item)
             })
         } else {
-            console.log("Figure out what to do with errors")       
+            res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
         }
     })
 }
 
     return (
+        <>
         <Form bg={"green"}>
-        <h2 className="purple">Edit Item</h2>
-        <form className="Edit-Registry-Form" onSubmit={handleSubmit}>
-            <FormInputLine>
-                <label>Item Name</label>
-                <input type='text' name='item_name' value={item_name} onChange={handleChange} />
-            </FormInputLine>
-            <FormInputLine>
-                <label>Price</label>
-                <input type='text' name='price' value={price} onChange={handleChange} />
-            </FormInputLine>
-            <FormInputLine>
-                <label>Listing URL</label>
-                <input type='text' name='listing_url' value={listing_url} onChange={handleChange} />
-            </FormInputLine>
-            <FormInputLine>
-                <label>Image URL</label>
-                <input type='text' name='image_url' value={image_url} onChange={handleChange} />
-            </FormInputLine>
-            <ButtonContainer>
-                <button type='submit' className="Submit-Button-Purple">Submit Item Edits</button>
-            </ButtonContainer>
-        </form>
+            <h2 className="purple">Edit Item</h2>
+            <form className="Edit-Registry-Form" onSubmit={handleSubmit}>
+                <FormInputLine>
+                    <label>Item Name</label>
+                    <input type='text' name='item_name' value={item_name} onChange={handleChange} />
+                </FormInputLine>
+                <FormInputLine>
+                    <label>Price</label>
+                    <input type='text' name='price' value={price} onChange={handleChange} />
+                </FormInputLine>
+                <FormInputLine>
+                    <label>Listing URL</label>
+                    <input type='text' name='listing_url' value={listing_url} onChange={handleChange} />
+                </FormInputLine>
+                <FormInputLine>
+                    <label>Image URL</label>
+                    <input type='text' name='image_url' value={image_url} onChange={handleChange} />
+                </FormInputLine>
+                <ButtonContainer>
+                    <button type='submit' className="Submit-Button-Purple">Submit Item Edits</button>
+                </ButtonContainer>
+            </form>
         </Form>
+        { errors.length > 0 ? (
+            <Errors>
+                <h4>Errors</h4>
+                {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+            </Errors>
+        ) : null }
+        </>
     )
 }
 
