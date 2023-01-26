@@ -61,29 +61,17 @@ function App() {
     .then(res => {
       if(res.ok){
           res.json().then(item => {
-            // console.log(item)
+            const selectedShower = {...friendsBabyShowers.find((shower) => shower.id === itemToClaim.baby_shower_id)}
+            const updateShowerItems = selectedShower.items.filter((item) => item.id !== itemToClaim.id)
+            selectedShower.items = updateShowerItems
+            const updateShowers = friendsBabyShowers.map((shower)=> shower.id === selectedShower.id ? selectedShower : shower)
+            setFriendsBabyShowers(updateShowers)
           })
       } else {
           console.log('Figure out what to do with errors')
       }
-  })
-    // const selectedShower = {...friendsBabyShowers}
-    console.log("bs 1", itemToClaim.baby_shower_id)
-    console.log("item name", itemToClaim.item_name)
-    const selectedShower = {...friendsBabyShowers.find((shower) => shower.id === itemToClaim.baby_shower_id)}
-    console.log("selected shower", selectedShower)
-    const updateShowerItems = selectedShower.items.filter((item) => item.id !== itemToClaim.id)
-    console.log("updateShowerItems", updateShowerItems)
-    selectedShower.items = updateShowerItems
-    console.log("selectedShower", selectedShower)
-    const updateShowers = friendsBabyShowers.map((shower)=> shower.id === selectedShower.id ? selectedShower : shower)
-    console.log("updateShowers", updateShowers)
-    setFriendsBabyShowers(updateShowers)
-
+    })
   }
-    
-    // console.log(friendsBabyShowers)
-
 
   useEffect(() => {
     // auto-login
