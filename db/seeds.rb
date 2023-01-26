@@ -29,8 +29,8 @@ b2 = BabyShower.create(baby_shower_name: "Javi's 2nd baby shower", date: "2024-0
 5.times do
     shower = BabyShower.create(
         baby_shower_name: Faker::TvShows::GameOfThrones.character,
-        date: Faker::Date,
-        address: Faker::Address,
+        date: Faker::Date.birthday(min_age: 18, max_age: 75),
+        address: Faker::Address.full_address,
         description: Faker::Quote.famous_last_words,
         user_id: rand(1..7)
     )
