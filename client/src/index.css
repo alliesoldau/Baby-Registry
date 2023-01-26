@@ -107,6 +107,12 @@ a {
   margin: 20px;
 }
 
+.Refine-Search {
+  color: var(--pink);
+  font-size: 1em;
+  text-align: center;
+}
+
 .Home-Page {
   padding: 40px;
 }
