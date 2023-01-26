@@ -3,7 +3,7 @@ import FriendsShowerDetails from './FriendsShowerDetails'
 import { useParams } from 'react-router-dom'
 import Errors from '../styles/Errors';
 
-function FriendsShowers({ friendsBabyShowers, setFriendsBabyShowers, ClaimItem }) {
+function FriendsShowers({ friendsBabyShowers, setFriendsBabyShowers, ClaimItem, claimErrors }) {
 
     const params = useParams()
 
@@ -15,8 +15,6 @@ function FriendsShowers({ friendsBabyShowers, setFriendsBabyShowers, ClaimItem }
             if(res.ok){
                 res.json().then(showers => {
                     setFriendsBabyShowers(showers) 
-                    // console.log(showers)
-                    // console.log(params.id)
                 })
             } else {
                 res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
@@ -31,6 +29,7 @@ function FriendsShowers({ friendsBabyShowers, setFriendsBabyShowers, ClaimItem }
                 key={shower.id}
                 shower={shower}
                 ClaimItem={ClaimItem}
+                claimErrors={claimErrors}
             />
         )
     })

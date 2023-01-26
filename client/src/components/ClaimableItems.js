@@ -2,8 +2,9 @@ import React from 'react';
 import TruncatedCard from '../styles/TruncatedCard';
 import ButtonContainer from '../styles/ButtonContainer';
 import LineItem from '../styles/LineItem';
+import Errors from '../styles/Errors';
 
-function ClaimableItems({ item, ClaimItem }) {
+function ClaimableItems({ item, ClaimItem, claimErrors }) {
 
     function handleClaim(e) {
         e.preventDefault();
@@ -27,6 +28,12 @@ function ClaimableItems({ item, ClaimItem }) {
             <ButtonContainer>
                     <button onClick={handleClaim} type='submit' className="Submit-Button">CLAIM ITEM</button>
             </ButtonContainer>
+            { claimErrors.length > 0 ? (
+            <Errors>
+                <h4>Errors</h4>
+                {claimErrors?claimErrors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+            </Errors>
+        ) : null }
         </div>
     )
 }

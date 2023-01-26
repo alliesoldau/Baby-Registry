@@ -26,6 +26,7 @@ function App() {
   const [myGifts, setMyGifts] = useState([]);
   const [searchUsers, setSearchUsers] = useState([])
   const [friendsBabyShowers, setFriendsBabyShowers] = useState([]);
+  const [claimErrors, setClaimErrors] = useState([])
 
   function addItemToRegistry(item) {
     let updateRegistry 
@@ -68,7 +69,8 @@ function App() {
             setFriendsBabyShowers(updateShowers)
           })
       } else {
-          console.log('Figure out what to do with errors')
+        res.json().then(data => setClaimErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+
       }
     })
   }
@@ -133,7 +135,7 @@ function App() {
           </Route>
 
           <Route path='/baby_showers/:id'>
-            <FriendsShowers setFriendsBabyShowers={setFriendsBabyShowers} friendsBabyShowers={friendsBabyShowers} ClaimItem={ClaimItem}/>
+            <FriendsShowers setFriendsBabyShowers={setFriendsBabyShowers} friendsBabyShowers={friendsBabyShowers} ClaimItem={ClaimItem} claimErrors={claimErrors}/>
           </Route>
 
           <Route path='/items/:id/edit'>

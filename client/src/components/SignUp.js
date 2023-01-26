@@ -5,8 +5,6 @@ import FormInputLine from '../styles/FormInputLine';
 import ButtonContainer from '../styles/ButtonContainer';
 import Errors from '../styles/Errors';
 
-// TO DO: what is this comp mad about??? 
-
 function SignUp({ setUser }) {
     
     const [formData, setFormData] = useState({
@@ -20,8 +18,6 @@ function SignUp({ setUser }) {
     const [errors, setErrors] = useState([])
 
     const {username, email, password} = formData
-
-    // TO DO: Need to add in a password confirmation
 
     function handleSubmit(e) {
         e.preventDefault();

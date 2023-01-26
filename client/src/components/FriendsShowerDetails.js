@@ -3,7 +3,7 @@ import ClaimableItems from './ClaimableItems';
 import SummaryCard from '../styles/SummaryCard';
 import LineItem from '../styles/LineItem';
 
-function FriendsShowerDetails({ shower, ClaimItem }) {
+function FriendsShowerDetails({ shower, ClaimItem, claimErrors }) {
 
     const items = shower.items
 
@@ -15,6 +15,7 @@ function FriendsShowerDetails({ shower, ClaimItem }) {
                 key={item.id}
                 item={item}
                 ClaimItem={ClaimItem}
+                claimErrors={claimErrors}
             />
         )
     })
