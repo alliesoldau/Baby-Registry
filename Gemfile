@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.4"
-
+# random image generator 
+gem 'image_suckr'
 # Used to generate seed data
 # https://github.com/faker-ruby/faker
 gem "faker", "~> 2.18"
