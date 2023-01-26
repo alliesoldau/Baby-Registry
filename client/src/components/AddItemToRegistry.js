@@ -3,10 +3,11 @@ import { useHistory } from 'react-router-dom'
 import Form from '../styles/Form';
 import FormInputLine from '../styles/FormInputLine';
 import ButtonContainer from '../styles/ButtonContainer';
+import Errors from '../styles/Errors';
 
 function AddItemToRegistry({ registry, addItemToRegistry }) {
 
-    console.log(`baby shower id: ${registry.id}`)
+    const [errors, setErrors] = useState([])
 
     const [formData, setFormData] = useState({
         item_name:'',
@@ -44,7 +45,8 @@ function AddItemToRegistry({ registry, addItemToRegistry }) {
                         addItemToRegistry(item)
                     })
                 } else {
-                    console.log("Figure out what to do with errors")
+                    // console.log("Figure out what to do with errors")
+                    res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
                 }
             })
     }
@@ -54,6 +56,7 @@ function AddItemToRegistry({ registry, addItemToRegistry }) {
         setFormData({ ...formData, [name]: value })
       }
     return (
+        <>
             <Form bg={"purple"}>
                 <h2>Add Item to Registry</h2>
                 <form onSubmit={handleSubmit}>
@@ -78,7 +81,12 @@ function AddItemToRegistry({ registry, addItemToRegistry }) {
                     </ButtonContainer>
                 </form>
             </Form>
-        )
+            <Errors>
+                <h4>Errors</h4>
+                {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+            </Errors>
+        </>
+    )
 }
 
 export default AddItemToRegistry;

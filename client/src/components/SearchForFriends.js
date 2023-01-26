@@ -6,7 +6,6 @@ import FormInputLine from '../styles/FormInputLine';
 function SearchForFriends({ searchUsers, setSearchUsers, friendsBabyShowers, setFriendsBabyShowers }) {
 
     const [search, setSearch] = useState("");
-    // const [noUsersFound, setNoUsersFound] = useState(false);
 
     useEffect(() => {
         setSearchUsers([])
@@ -19,8 +18,6 @@ function SearchForFriends({ searchUsers, setSearchUsers, friendsBabyShowers, set
         .then(resp => resp.json())
         .then((searchData) => setSearchUsers(searchData))
     }
-
-
 
     const userDetails = searchUsers.map((user) => {
         return (
@@ -58,16 +55,15 @@ function SearchForFriends({ searchUsers, setSearchUsers, friendsBabyShowers, set
                 </div>
             </form>
             { searchUsers.length > 0 ? (
-            <div className="User-Tiles">
-                {userDetails}
-            </div>
+                <div className="User-Tiles">
+                    {userDetails}
+                </div>
             )  :  (
-            <div className="Refine-Search">
-                <p><i>No users match search terms. Please refine search.</i></p>
-            </div>
-        )}
+                <div className="Refine-Search">
+                    <p><i>No users match search terms. Please refine search.</i></p>
+                </div>
+            )}
         </>
-
     )
 }
 
