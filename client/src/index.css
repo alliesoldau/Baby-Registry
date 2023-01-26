@@ -95,6 +95,12 @@ a {
   justify-content: space-evenly;
 }
 
+.Search-Form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .Home-Page {
   padding: 40px;
 }

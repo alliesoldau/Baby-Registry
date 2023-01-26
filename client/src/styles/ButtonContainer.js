@@ -29,6 +29,9 @@ button.Submit-Button {
 button.Submit-Button-Purple {
     background-color: var(--purple);
 }
+button.Search-Button{
+    background-color: var(--green);  
+}
 button:hover {
     text-decoration: underline;
 }  

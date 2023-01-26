@@ -61,7 +61,7 @@ function App() {
     // console.log(selectedShower)
     // const updateShowers = friendsBabyShowers.map((shower)=> shower.id === itemToClaim.baby_shower_id ? selectedShower : shower)
     // setFriendsBabyShowers(updateShowers)
-    // TO DO: need to get the claim item to render to the front end! 
+    // TO DO: need to get the claim item to render to the front end! and make the patch for the back end
     // some weird bs is happening
   }
     

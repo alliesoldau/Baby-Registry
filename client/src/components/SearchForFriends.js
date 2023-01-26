@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Button from '../styles/Button'
+import ButtonContainer from '../styles/ButtonContainer'
 import UserDetails from './UserDetails';
+import FormInputLine from '../styles/FormInputLine';
 
 function SearchForFriends({ searchUsers, setSearchUsers, friendsBabyShowers, setFriendsBabyShowers }) {
 
@@ -35,24 +36,29 @@ function SearchForFriends({ searchUsers, setSearchUsers, friendsBabyShowers, set
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <label>Search by Username</label>
-                <input 
-                    id="search"
-                    type="text"
-                    name="search"
-                    placeholder="Search..."
-                    autoComplete="off"
-                    value={search}
-                    onChange={e => setSearch(e.target.value)}
-                    />
-                <Button>
-                    <button type="Submit-Button">Search</button>
-                </Button>
+                <div className="Search-Form">
+                    <FormInputLine bg={"bone"}>
+                        <label className="Search">Search by Username</label>
+                        <input 
+                            id="search"
+                            type="text"
+                            name="search"
+                            placeholder="Search..."
+                            autoComplete="off"
+                            value={search}
+                            onChange={e => setSearch(e.target.value)}
+                            />
+                    </FormInputLine>
+                    <ButtonContainer>
+                        <button className="Search-Button" type="submit">Search</button>
+                    </ButtonContainer>
+                </div>
             </form>
             <div className="User-Tiles">
                 {userDetails}
             </div>
         </>
+
     )
 }
 
