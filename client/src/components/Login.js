@@ -38,10 +38,12 @@ function Login({ setUser }) {
                       setUser(user)
                   })
               } else {
-                res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+                res.json().then(data => setErrors(data.errors))
               }
           })
     }
+
+    // console.log(errors.errors)
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -69,7 +71,7 @@ function Login({ setUser }) {
         { errors.length > 0 ? (
             <Errors>
                 <h4>Errors</h4>
-                {errors?errors.map(e => <p>{`● ${e.toUpperCase()}`}</p>):null}
+                <p>● {errors.toUpperCase()}</p>
             </Errors>
         ) : null }
         </>
