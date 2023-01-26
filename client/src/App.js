@@ -49,6 +49,24 @@ function App() {
     const updateGifts = myGifts.filter((gift) => gift.id !== itemToSurrender.id)
     setMyGifts(updateGifts)
   }
+  
+  function ClaimItem(itemToClaim) {
+    // console.log(itemToClaim.baby_shower_id)
+    console.log(itemToClaim.item_name)
+    // const selectedShower = friendsBabyShowers.filter((shower) => shower.id === itemToClaim.baby_shower_id)
+    // console.log(selectedShower)
+    // const updateShowerItems = selectedShower[0].items.filter((item) => item.id !== itemToClaim.id)
+    // console.log(updateShowerItems)
+    // selectedShower.items = updateShowerItems
+    // console.log(selectedShower)
+    // const updateShowers = friendsBabyShowers.map((shower)=> shower.id === itemToClaim.baby_shower_id ? selectedShower : shower)
+    // setFriendsBabyShowers(updateShowers)
+    // TO DO: need to get the claim item to render to the front end! 
+    // some weird bs is happening
+  }
+    
+    // console.log(friendsBabyShowers)
+
 
   useEffect(() => {
     // auto-login
@@ -110,7 +128,7 @@ function App() {
           </Route>
 
           <Route path='/baby_showers/:id'>
-            <FriendsShowers setFriendsBabyShowers={setFriendsBabyShowers} friendsBabyShowers={friendsBabyShowers}/>
+            <FriendsShowers setFriendsBabyShowers={setFriendsBabyShowers} friendsBabyShowers={friendsBabyShowers} ClaimItem={ClaimItem}/>
           </Route>
 
           <Route path='/items/:id/edit'>

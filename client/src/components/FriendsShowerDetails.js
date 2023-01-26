@@ -1,19 +1,20 @@
 import React from 'react';
-import ItemDetails from './ItemDetails';
+import ClaimableItems from './ClaimableItems';
 import SummaryCard from '../styles/SummaryCard';
 import LineItem from '../styles/LineItem';
 
-function FriendsShowerDetails({ shower }) {
+function FriendsShowerDetails({ shower, ClaimItem }) {
 
     const items = shower.items
 
     const filteredItems = items.filter(item => item.user_id === null)
-    
+
     const itemDetails = filteredItems.map((item) => {
         return (
-            <ItemDetails
+            <ClaimableItems
                 key={item.id}
                 item={item}
+                ClaimItem={ClaimItem}
             />
         )
     })

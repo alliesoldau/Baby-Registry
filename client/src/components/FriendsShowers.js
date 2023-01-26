@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import FriendsShowerDetails from './FriendsShowerDetails'
 import { useParams } from 'react-router-dom'
 
-function FriendsShowers({ friendsBabyShowers, setFriendsBabyShowers }) {
+function FriendsShowers({ friendsBabyShowers, setFriendsBabyShowers, ClaimItem }) {
 
     const params = useParams()
 
@@ -26,6 +26,7 @@ function FriendsShowers({ friendsBabyShowers, setFriendsBabyShowers }) {
             <FriendsShowerDetails
                 key={shower.id}
                 shower={shower}
+                ClaimItem={ClaimItem}
             />
         )
     })
