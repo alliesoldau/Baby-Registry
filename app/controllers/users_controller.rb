@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     end
 
     def show_showers
-        showers = BabyShower.where(user_id: current_user.id)
+        showers = BabyShower.where(user_id: params[:id])
         render json: showers, include: :items
     end
 

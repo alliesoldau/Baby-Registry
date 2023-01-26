@@ -6,7 +6,7 @@ import LineItem from '../styles/LineItem';
 function FriendsShowerDetails({ shower }) {
 
     const items = shower.items
-
+    // TO DO: filter out items that are already claimed 
     const itemDetails = items.map((item) => {
         return (
             <ItemDetails

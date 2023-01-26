@@ -12,6 +12,8 @@ function FriendsShowers({ friendsBabyShowers, setFriendsBabyShowers }) {
             if(res.ok){
                 res.json().then(showers => {
                     setFriendsBabyShowers(showers) 
+                    // console.log(showers)
+                    // console.log(params.id)
                 })
             }else {
                 console.log("Figure out what to do with errors")
