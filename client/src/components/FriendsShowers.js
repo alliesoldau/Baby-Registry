@@ -22,7 +22,6 @@ function FriendsShowers({ friendsBabyShowers, setFriendsBabyShowers, ClaimItem, 
         }) 
     },[])           
 
-
     const friendsBabyShowerDetails = friendsBabyShowers.map((shower) => {
         return (
             <FriendsShowerDetails

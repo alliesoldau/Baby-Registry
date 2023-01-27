@@ -20,7 +20,6 @@ function AddRegistryForm() {
 
     const [errors, setErrors] = useState([])
 
-
     const {baby_shower_name, date, address, description, user_id} = formData
 
     function handleSubmit(e) {

@@ -5,8 +5,6 @@ import FormInputLine from '../styles/FormInputLine';
 import ButtonContainer from '../styles/ButtonContainer';
 import Errors from '../styles/Errors';
 
-// TO DO: login errors come out one letter per line?? 
-
 function Login({ setUser }) {
 
     const [formData, setFormData] = useState({
@@ -42,8 +40,6 @@ function Login({ setUser }) {
               }
           })
     }
-
-    // console.log(errors.errors)
 
     const handleChange = (e) => {
         const { name, value } = e.target

@@ -5,9 +5,6 @@ import FormInputLine from '../styles/FormInputLine';
 import Button from '../styles/Button';
 import Errors from '../styles/Errors';
 
-// TO DO: edit profile throws an error bc i have a password validation
-// how do i get around this??
-
 function EditProfile({ user, setUser }) {
 
     const history = useHistory()

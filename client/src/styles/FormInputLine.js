@@ -30,5 +30,4 @@ input {
     border-radius: 5px;
 }`
 
-
 export default FormInputLine;

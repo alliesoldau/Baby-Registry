@@ -20,9 +20,7 @@ function AddItemToRegistry({ registry, addItemToRegistry }) {
     const history = useHistory()
 
     const {item_name, price, image_url, listing_url, baby_shower_id} = formData
-
-    // TO DO: get rid of baby shower image 
-
+    
     function handleSubmit(e) {
         e.preventDefault();
         const item = {

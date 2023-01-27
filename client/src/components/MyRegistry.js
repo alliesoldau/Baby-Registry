@@ -46,7 +46,6 @@ function MyRegistry({ setRegistry }) {
                 <button className="Create-Babyshower-Button" onClick={handleRouteToNewRegistryForm}>Create New Registry</button>
             </Button>
             <div className="My-Registry-Details">
-                {/* TO DO: how can we make the items stack or something? */}
                 {babyShowerDetails}
             </div>
             { errors.length > 0 ? (

@@ -14,6 +14,6 @@ function Home( {user} ) {
           </div>
         )
       }
-}
+  }
 
 export default Home;

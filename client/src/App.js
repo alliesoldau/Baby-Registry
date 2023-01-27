@@ -16,7 +16,7 @@ import EditItem from './components/EditItem';
 import SearchForFriends from './components/SearchForFriends';
 import FriendsShowers from './components/FriendsShowers';
 
-// styled components: https://www.smashingmagazine.com/2020/07/styled-components-react/ 
+// styled components documentation: https://www.smashingmagazine.com/2020/07/styled-components-react/ 
 
 function App() {
   

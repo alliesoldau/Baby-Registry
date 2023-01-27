@@ -28,7 +28,6 @@ function UserHomePage({ user, setUser }) {
                 <h1>{user.username}'s Home Page</h1>
             </div>
             )  :  (
-            // TO DO: loading screen
             <p>No user</p>
         )}
         { errors.length > 0 ? (
